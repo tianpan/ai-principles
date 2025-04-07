@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
+  <!-- 外圈 -->
+  <circle cx="50" cy="50" r="45" fill="#E74C3C" stroke="#C0392B" stroke-width="5"/>
+  <!-- 内圈 -->
+  <circle cx="50" cy="50" r="35" fill="#E74C3C" stroke="#FFFFFF" stroke-width="3" stroke-dasharray="5,5"/>
+  <!-- 中心点 -->
+  <circle cx="50" cy="50" r="10" fill="#FFFFFF"/>
+</svg> 

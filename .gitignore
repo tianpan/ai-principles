@@ -41,3 +41,12 @@ playwright/.cache/
 .env
 .env.local
 .env.*.local
+
+# Local directories
+/00-Code.code-workspace
+/aiWatchdog-main
+/cad
+/cursor-rules-main
+/minesweeper-game
+/projectmanagement
+/Prompt-lijigang
