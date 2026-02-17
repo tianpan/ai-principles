@@ -1,4 +1,4 @@
-// 游戏常量
+﻿// 游戏常量
 const DEBUGGING = false; // 是否开启调试模式
 const PLAYER_COUNT = 6; // 玩家数量
 const SMALL_BLIND = 10; // 小盲注
@@ -723,11 +723,11 @@ const PLAYER_DIALOGS = {
     },
     thinking: {
         'Daniel Negreanu': [
-            '嗯...让我想想...',
-            '这牌...',
-            '该怎么打呢？',
-            '我需要考虑一下...',
-            '等等，让我算算...'
+        '嗯...让我想想...',
+        '这牌...',
+        '该怎么打呢？',
+        '我需要考虑一下...',
+        '等等，让我算算...'
         ],
         'Phil Ivey': [
             '嗯...让我想想...',
@@ -1396,12 +1396,98 @@ const PLAYER_POSITIONS = [
     { top: '60%', left: '80%' }      // 玩家7（右下）
 ];
 
+// 真实玩家头像（存储在本地）
+const REAL_AVATARS = {
+    male: [
+        "assets/images/players/daniel_negreanu.jpg",
+        "assets/images/players/phil_ivey.jpg",
+        "assets/images/players/doyle_brunson.jpg",
+        "assets/images/players/phil_hellmuth.jpg",
+        "assets/images/players/johnny_chan.jpg",
+        "assets/images/players/tom_dwan.jpg",
+        "assets/images/players/fedor_holz.jpg",
+        "assets/images/players/justin_bonomo.jpg",
+        "assets/images/players/patrik_antonius.jpg",
+        "assets/images/players/phil_galfond.jpg",
+        "assets/images/players/jason_mercier.jpg",
+        "assets/images/players/elton_tsang.jpg"
+    ],
+    female: [
+        "assets/images/players/vanessa_selbst.jpg",
+        "assets/images/players/liv_boeree.jpg",
+        "assets/images/players/jennifer_harman.jpg",
+        "assets/images/players/maria_ho.jpg",
+        "assets/images/players/kristen_bicknell.jpg",
+        "assets/images/players/celina_lin.jpg",
+        "assets/images/players/xuan_liu.jpg",
+        "assets/images/players/jennifer_tilly.jpg"
+    ]
+};
+
+// 为每个数据库中的玩家设置本地头像
+for (let i = 0; i < POKER_PLAYERS_DATABASE.length; i++) {
+    const player = POKER_PLAYERS_DATABASE[i];
+    // 将头像URL替换为本地路径
+    const playerNameForFile = player.name.toLowerCase().replace(/\s+/g, '_');
+    player.avatarUrl = `assets/images/players/${playerNameForFile}.jpg`;
+}
+
+// 主玩家头像
+const MAIN_PLAYER_AVATAR = "assets/images/players/main_player.jpg";
+
 // 初始化游戏
 function initGame() {
     // 声音设置
     enableSoundCheckbox.addEventListener('change', () => {
         gameState.soundEnabled = enableSoundCheckbox.checked;
     });
+    
+    // 添加音频上下文初始化
+    // 解决AudioContext自动播放策略限制问题
+    let audioInitialized = false;
+    
+    // 用户交互时初始化音频
+    function initAudio() {
+        if (!audioInitialized) {
+            try {
+                // 创建全局AudioContext对象
+                window.audioContext = new (window.AudioContext || window.webkitAudioContext)();
+                
+                // 确保AudioContext已经启动
+                if (window.audioContext.state === 'suspended') {
+                    window.audioContext.resume();
+                }
+                
+                // 初始化所有音频元素
+                Object.values(sounds).forEach(sound => {
+                    if (sound) {
+                        // 静音播放然后立即暂停，激活音频
+                        sound.volume = 0;
+                        sound.play().then(() => {
+                            sound.pause();
+                            sound.currentTime = 0;
+                            sound.volume = 1; // 恢复音量
+                        }).catch(err => {
+                            console.log('初始化音频失败:', err);
+                        });
+                    }
+                });
+                
+                audioInitialized = true;
+                console.log('音频已成功初始化');
+            } catch (error) {
+                console.error('AudioContext初始化失败:', error);
+            }
+            
+            // 移除事件监听器
+            document.removeEventListener('click', initAudio);
+            document.removeEventListener('touchstart', initAudio);
+        }
+    }
+    
+    // 添加用户交互事件监听器
+    document.addEventListener('click', initAudio);
+    document.addEventListener('touchstart', initAudio);
     
     // 行动时间限制设置
     const actionTimeLimitSelect = document.getElementById('actionTimeLimit');
@@ -1568,11 +1654,25 @@ function resetGameState() {
 // 播放声音
 function playSound(soundName) {
     if (gameState.soundEnabled && sounds[soundName]) {
-        // 重置播放位置
-        sounds[soundName].currentTime = 0;
-        sounds[soundName].play().catch(error => {
-            console.log('播放声音失败:', error);
-        });
+        try {
+            // 重置播放位置
+            sounds[soundName].currentTime = 0;
+            
+            // 恢复AudioContext（如果存在且被暂停）
+            if (window.audioContext && window.audioContext.state === 'suspended') {
+                window.audioContext.resume().then(() => {
+                    sounds[soundName].play().catch(error => {
+                        console.log('播放声音失败:', error);
+                    });
+                });
+            } else {
+                sounds[soundName].play().catch(error => {
+                    console.log('播放声音失败:', error);
+                });
+            }
+        } catch (error) {
+            console.error('播放声音时出错:', error);
+        }
     }
 }
 
@@ -1755,33 +1855,33 @@ function updateDealerButton(position) {
 }
 
 // 添加吴彦祖头像URL和更多真实头像
-const MAIN_PLAYER_AVATAR = "https://m.media-amazon.com/images/M/MV5BMjA2NTI1ODk3N15BMl5BanBnXkFtZTcwODUyMTM1MQ@@._V1_.jpg"; // 吴彦祖头像
+const MAIN_PLAYER_AVATAR = "assets/images/players/main_player.jpg"; // 吴彦祖头像
 
 // 添加更多真实头像URL供AI玩家使用
 const REAL_AVATARS = {
     male: [
-        "https://randomuser.me/api/portraits/men/32.jpg",
-        "https://randomuser.me/api/portraits/men/51.jpg",
-        "https://randomuser.me/api/portraits/men/61.jpg",
-        "https://randomuser.me/api/portraits/men/72.jpg",
-        "https://randomuser.me/api/portraits/men/83.jpg",
-        "https://randomuser.me/api/portraits/men/4.jpg",
-        "https://randomuser.me/api/portraits/men/15.jpg",
-        "https://randomuser.me/api/portraits/men/26.jpg",
-        "https://randomuser.me/api/portraits/men/37.jpg",
-        "https://randomuser.me/api/portraits/men/48.jpg"
+        "assets/images/players/daniel_negreanu.jpg",
+        "assets/images/players/phil_ivey.jpg",
+        "assets/images/players/doyle_brunson.jpg",
+        "assets/images/players/phil_hellmuth.jpg",
+        "assets/images/players/johnny_chan.jpg",
+        "assets/images/players/tom_dwan.jpg",
+        "assets/images/players/fedor_holz.jpg",
+        "assets/images/players/justin_bonomo.jpg",
+        "assets/images/players/patrik_antonius.jpg",
+        "assets/images/players/phil_galfond.jpg",
+        "assets/images/players/jason_mercier.jpg",
+        "assets/images/players/elton_tsang.jpg"
     ],
     female: [
-        "https://randomuser.me/api/portraits/women/32.jpg",
-        "https://randomuser.me/api/portraits/women/51.jpg",
-        "https://randomuser.me/api/portraits/women/61.jpg",
-        "https://randomuser.me/api/portraits/women/72.jpg",
-        "https://randomuser.me/api/portraits/women/83.jpg",
-        "https://randomuser.me/api/portraits/women/4.jpg",
-        "https://randomuser.me/api/portraits/women/15.jpg",
-        "https://randomuser.me/api/portraits/women/26.jpg",
-        "https://randomuser.me/api/portraits/women/37.jpg",
-        "https://randomuser.me/api/portraits/women/48.jpg"
+        "assets/images/players/vanessa_selbst.jpg",
+        "assets/images/players/liv_boeree.jpg",
+        "assets/images/players/jennifer_harman.jpg",
+        "assets/images/players/maria_ho.jpg",
+        "assets/images/players/kristen_bicknell.jpg",
+        "assets/images/players/celina_lin.jpg",
+        "assets/images/players/xuan_liu.jpg",
+        "assets/images/players/jennifer_tilly.jpg"
     ]
 };
 
@@ -1792,40 +1892,28 @@ function getPlayerAvatar(index, gender, style = 'realistic') {
         return MAIN_PLAYER_AVATAR;
     }
     
-    // 使用预设的玩家数据库
+    // 使用预设的玩家数据库，优先使用数据库中的真实头像
     if (index < POKER_PLAYERS_DATABASE.length) {
         const player = POKER_PLAYERS_DATABASE[index];
         // 使用数据库中的头像，如果是有效的URL
-        if (player.avatarUrl && player.avatarUrl.startsWith('http')) {
+        if (player.avatarUrl && player.avatarUrl.startsWith('assets/')) {
             return player.avatarUrl;
         }
     }
     
-    // 如果要求使用真实风格头像或有90%的概率使用真实头像
-    if (style === 'realistic' || Math.random() < 0.9) {
+    // 确保使用有效的头像URL
+    try {
         // 根据性别选择真实头像
         const genderAvatars = REAL_AVATARS[gender || (Math.random() > 0.5 ? 'male' : 'female')];
         // 添加一些随机性，避免每次游戏相同位置的AI使用相同头像
         const avatarIndex = (index + Math.floor(Math.random() * 100)) % genderAvatars.length;
         return genderAvatars[avatarIndex];
-    }
-    
-    // 卡通/抽象风格使用现有逻辑
-    if (style === 'cartoon' && FALLBACK_AVATARS.cartoon.length > 0) {
+    } catch (error) {
+        // 如果真实头像出错，使用卡通头像作为备选
+        console.log('使用真实头像失败，切换到卡通头像');
         const cartoonIndex = (index + Math.floor(Math.random() * 100)) % FALLBACK_AVATARS.cartoon.length;
         return FALLBACK_AVATARS.cartoon[cartoonIndex];
     }
-    
-    if (style === 'abstract' && FALLBACK_AVATARS.abstract.length > 0) {
-        const abstractIndex = (index + Math.floor(Math.random() * 100)) % FALLBACK_AVATARS.abstract.length;
-        return FALLBACK_AVATARS.abstract[abstractIndex];
-    }
-    
-    // 默认随机选择真实头像
-    const randomGender = Math.random() > 0.5 ? 'male' : 'female';
-    const genderAvatars = REAL_AVATARS[randomGender];
-    const avatarIndex = (index + Math.floor(Math.random() * 100)) % genderAvatars.length;
-    return genderAvatars[avatarIndex];
 }
 
 // 开始游戏
@@ -1949,21 +2037,15 @@ function addAIPlayers(startingChips = 1000) {
             
             // 确定AI的难度级别（根据玩家风格决定）
             let aiLevel = 'normal';
-            let avatarStyle = 'realistic'; // 使用真实头像风格
             
             if (playerData.style.includes('激进') || playerData.style.includes('松凶')) {
                 aiLevel = 'aggressive';
             } else if (playerData.style.includes('稳健') || playerData.style.includes('紧')) {
                 aiLevel = 'conservative';
-            } else if (playerData.style.includes('创新') || playerData.style.includes('不按常理')) {
-                // 创新型玩家有10%概率使用非真实头像
-                if (Math.random() < 0.1) {
-                    avatarStyle = Math.random() < 0.5 ? 'cartoon' : 'abstract';
-                }
             }
             
-            // 根据玩家类型和风格获取头像
-            const aiAvatar = getPlayerAvatar(i + 1, playerData.gender, avatarStyle);
+            // 获取真实头像
+            const aiAvatar = getPlayerAvatar(i + 1, playerData.gender, 'realistic');
             
             gameState.players.push({
                 id: i + 1,
@@ -1980,7 +2062,7 @@ function addAIPlayers(startingChips = 1000) {
                 nickname: playerData.nickname || '',
                 country: playerData.country || '',
                 characteristic: playerData.characteristic || '',
-                avatarStyle: avatarStyle // 保存头像风格信息
+                avatarStyle: 'realistic' // 始终使用真实头像风格
             });
         } else {
             // 如果数据库玩家不足，使用旧的方法创建AI玩家
@@ -1990,7 +2072,7 @@ function addAIPlayers(startingChips = 1000) {
             
             // 使用真实风格头像
             const aiAvatar = getPlayerAvatar(i + 1, gender, 'realistic');
-            
+        
             gameState.players.push({
                 id: i + 1,
                 name: aiName,
@@ -2003,7 +2085,7 @@ function addAIPlayers(startingChips = 1000) {
                 avatar: aiAvatar,
                 eliminated: false,
                 aiLevel: 'normal',
-                avatarStyle: 'realistic' // 保存头像风格信息
+                avatarStyle: 'realistic' // 始终使用真实头像风格
             });
         }
     }
@@ -2054,19 +2136,10 @@ function renderPlayers() {
                 aiLevelClass = 'conservative-player';
             }
             
-            // 添加头像风格类
-            let avatarStyleClass = '';
-            if (player.avatarStyle === 'cartoon') {
-                avatarStyleClass = 'cartoon-avatar';
-            } else if (player.avatarStyle === 'abstract') {
-                avatarStyleClass = 'abstract-avatar';
-            }
-            
             // 创建头像HTML
             const avatarHtml = `
-                <div class="player-avatar ${aiLevelClass} ${avatarStyleClass}" style="background-color: ${player.avatarColor}">
-                    <img src="${player.avatar}" alt="${player.name}" class="avatar-image" onerror="this.classList.add('error'); this.parentElement.classList.add('fallback-active');">
-                    <div class="avatar-image-fallback">${player.name.charAt(0).toUpperCase()}</div>
+                <div class="player-avatar ${aiLevelClass}" style="background-color: ${player.avatarColor}">
+                    <img src="${player.avatar}" alt="${player.name}" class="avatar-image" onerror="this.onerror=null; this.src='https://api.multiavatar.com/${player.name}.svg';">
                     ${player.aiLevel === 'aggressive' ? '<div class="ai-badge aggressive-badge">激进型</div>' : ''}
                     ${player.aiLevel === 'conservative' ? '<div class="ai-badge conservative-badge">保守型</div>' : ''}
                 </div>
@@ -2096,13 +2169,6 @@ function updateMainPlayerAvatar() {
     const mainPlayerAvatar = document.createElement('div');
     mainPlayerAvatar.className = 'main-player-avatar';
     
-    // 添加头像风格类
-    if (mainPlayer.avatarStyle === 'cartoon') {
-        mainPlayerAvatar.classList.add('cartoon-avatar');
-    } else if (mainPlayer.avatarStyle === 'abstract') {
-        mainPlayerAvatar.classList.add('abstract-avatar');
-    }
-    
     // 添加主玩家状态
     let statusHTML = '';
     if (mainPlayer.folded) {
@@ -2115,8 +2181,7 @@ function updateMainPlayerAvatar() {
     
     mainPlayerAvatar.innerHTML = `
         <div class="avatar-container">
-            <img src="${mainPlayer.avatar}" alt="${mainPlayer.name}" class="avatar-image" onerror="this.classList.add('error'); this.parentElement.classList.add('fallback-active');">
-            <div class="avatar-image-fallback">${mainPlayer.name.charAt(0).toUpperCase()}</div>
+            <img src="${mainPlayer.avatar}" alt="${mainPlayer.name}" class="avatar-image" onerror="this.onerror=null; this.src='https://api.multiavatar.com/${mainPlayer.name}.svg';">
         </div>
         ${statusHTML}
     `;
@@ -2374,10 +2439,10 @@ function startNewRound() {
         console.log("发牌完成");
         
         // 再延迟一下，让玩家看到发牌动画
-        setTimeout(() => {
-            // 开始回合 - 从大盲后面的玩家开始行动
+    setTimeout(() => {
+        // 开始回合 - 从大盲后面的玩家开始行动
             console.log("开始下注回合");
-            startBettingRound();
+        startBettingRound();
         }, 1500);
     }, 1500);
 }
@@ -2653,7 +2718,7 @@ function startBettingRound() {
         // 设置行动计时器
         setTimeout(() => {
             console.log("为主玩家启动行动计时器");
-            startActionTimer();
+        startActionTimer();
         }, 300);
     } else {
         console.log(`当前轮到AI玩家(${gameState.players[gameState.currentPlayer].name})行动`);
@@ -2661,7 +2726,7 @@ function startBettingRound() {
         setTimeout(() => {
             console.log("为AI玩家启动行动计时器");
             startActionTimer();
-            simulateAIActions();
+        simulateAIActions();
         }, 500);
     }
 }
@@ -2881,9 +2946,9 @@ function simulateAIActions() {
                 showPlayerDialog(aiPlayer.id, 'check');
                 
                 // 播放让牌音效
-                playSound('check');
-                
-                break;
+                        playSound('check');
+                        
+                    break;
                 
             case 'call':
                 // 计算跟注金额
@@ -2898,15 +2963,15 @@ function simulateAIActions() {
                 
                 // 更新底池
                 gameState.pot += actualCallAmount;
-                
-                // 添加历史记录
+                        
+                        // 添加历史记录
                 addHistoryItem(aiPlayer.name, 'call', actualCallAmount);
-                
+                        
                 // 显示跟注对话
                 showPlayerDialog(aiPlayer.id, 'call');
                 
                 // 创建筹码动画
-                createChipAnimation(
+                        createChipAnimation(
                     PLAYER_POSITIONS[aiPlayer.id],
                     { top: '50%', left: '50%' },
                     actualCallAmount
@@ -2915,7 +2980,7 @@ function simulateAIActions() {
                 // 播放跟注音效
                 playSound('call');
                 
-                break;
+                        break;
                 
             case 'raise':
                 // 设置一个合理的加注额 (当前下注的1.5-2.5倍或剩余筹码的1/3，取较小值)
@@ -3340,7 +3405,7 @@ function advanceGamePhase() {
             gameState.gamePhase = 'showdown';
             break;
         case 'showdown':
-            setTimeout(startNewRound, 3000);
+            // 不自动开始下一轮，由declareWinner中的倒计时完成
             break;
     }
     
@@ -3524,6 +3589,39 @@ function showdown() {
             if (gameState.tournament.isEnabled && gameState.tournament.isFinished) {
                 return;
             }
+            
+            // 创建5秒倒计时提示，然后自动开始下一轮
+            const countdownElement = document.createElement('div');
+            countdownElement.className = 'countdown-timer';
+            countdownElement.style.position = 'absolute';
+            countdownElement.style.left = '50%';
+            countdownElement.style.top = '30%';
+            countdownElement.style.transform = 'translate(-50%, -50%)';
+            countdownElement.style.fontSize = '24px';
+            countdownElement.style.fontWeight = 'bold';
+            countdownElement.style.color = '#fff';
+            countdownElement.style.textShadow = '0 0 10px rgba(0,0,0,0.7)';
+            countdownElement.style.zIndex = '1000';
+            
+            // 添加到DOM
+            gameScreen.appendChild(countdownElement);
+            
+            // 开始5秒倒计时
+            let timeLeft = 5;
+            countdownElement.textContent = `${timeLeft}秒后开始下一轮...`;
+            
+            const countdownInterval = setInterval(() => {
+                timeLeft--;
+                countdownElement.textContent = `${timeLeft}秒后开始下一轮...`;
+                
+                if (timeLeft <= 0) {
+                    clearInterval(countdownInterval);
+                    countdownElement.remove();
+                    
+                    // 开始新一轮
+                    startNewRound();
+                }
+            }, 1000);
     }
 }
 
@@ -3762,197 +3860,88 @@ function createFireworks() {
     }
 }
 
+// 添加位置因素影响函数
+function evaluatePosition(position) {
+    // 晚位置加成，早位置减弱
+    if (position === 'late') return 0.15;
+    if (position === 'middle') return 0.05;
+    if (position === 'early') return -0.05;
+    if (position === 'blinds') return -0.1;
+    return 0;
+}
+
+// 根据庄家位置计算相对位置
+function getRelativePositions(dealerPosition, playerCount) {
+    const positions = [];
+    for (let i = 0; i < playerCount; i++) {
+        // 计算相对位置
+        const relativePosition = (i - dealerPosition - 3 + playerCount) % playerCount;
+        const positionPercentile = relativePosition / playerCount;
+        
+        // 根据位置百分比分配位置名称
+        let positionName;
+        if (i === (dealerPosition + 1) % playerCount || i === (dealerPosition + 2) % playerCount) {
+            positionName = 'blinds'; // 小盲和大盲
+        } else if (positionPercentile < 0.3) {
+            positionName = 'early'; // 早位
+        } else if (positionPercentile < 0.7) {
+            positionName = 'middle'; // 中位
+        } else {
+            positionName = 'late'; // 晚位
+        }
+        positions[i] = positionName;
+    }
+    return positions;
+}
 // AI决策逻辑
 function makeAIDecision(playerIndex) {
-    if (playerIndex < 0 || playerIndex >= gameState.players.length) {
-        console.error("无效的玩家索引:", playerIndex);
-        return 'check'; // 默认安全行为
-    }
-    
+    // 计算手牌强度
     const player = gameState.players[playerIndex];
-    const hand = player.hand;
-    const communityCards = gameState.communityCards;
-    const currentBet = gameState.currentBet;
-    const playerBet = player.bet;
-    const callAmount = currentBet - playerBet;
-    const potOdds = callAmount > 0 ? callAmount / (gameState.pot + callAmount) : 0;
-    const playerChips = player.chips;
-    const gamePhase = gameState.gamePhase;
-    const isHeadsUp = gameState.players.filter(p => !p.folded && !p.eliminated).length === 2;
+    let handStrength = calculateHandStrength(player.hand, gameState.communityCards);
     
-    // 如果玩家没有足够的筹码跟注，只能全押或弃牌
-    if (callAmount >= playerChips && callAmount > 0) {
-        // 根据手牌强度决定是全押还是弃牌
-        const handStrength = calculateHandStrength(hand, communityCards, gameState.players.length - gameState.players.filter(p => p.folded).length);
-        return handStrength > 0.3 ? 'allIn' : 'fold';
-    }
-    
-    // 计算手牌强度 (0-1)
-    let handStrength = calculateHandStrength(hand, communityCards, gameState.players.length - gameState.players.filter(p => p.folded).length);
-    
-    // 增加位置因素影响
+    // 增加位置因素
     const positions = getRelativePositions(gameState.dealerPosition, gameState.players.length);
     const positionFactor = evaluatePosition(positions[playerIndex]);
     handStrength *= (1 + positionFactor);
     
-    // 游戏阶段修正
-    if (gamePhase === 'preflop') {
-        // 前翻牌圈的手牌重要性更高，但不要太激进
-        handStrength = handStrength * 0.85 + 0.15;
-    } else if (gamePhase === 'flop') {
-        // 翻牌圈要更加谨慎
-        handStrength = handStrength * 0.9;
-    } else if (gamePhase === 'turn') {
-        // 转牌圈稍微激进一些
-        handStrength = handStrength * 0.95;
-    } else if (gamePhase === 'river') {
-        // 河牌圈最为保守，基于手牌的实际价值
-        handStrength = handStrength;
+    // 检查玩家是否已弃牌
+    if (player.folded) {
+        return 'fold';
     }
     
-    // 锦标赛策略调整
-    let tournamentAdjustment = 0;
-    if (gameState.tournament.isEnabled) {
-        // 获取当前锦标赛信息
-        const levelPercentage = gameState.tournament.currentLevel / (TOURNAMENT_BLIND_LEVELS.length - 1);
-        const remainingPlayers = gameState.players.filter(p => !p.eliminated).length;
-        const totalPlayers = gameState.players.length;
-        const tournamentProgress = 1 - (remainingPlayers / totalPlayers);
-        
-        // 计算与泡沫的接近程度 (接近支付区时更保守)
-        const payoutsCount = TOURNAMENT_PAYOUTS.length;
-        const bubbleFactor = Math.max(0, 1 - Math.abs(remainingPlayers - payoutsCount) / payoutsCount);
-        
-        // 筹码量评估，相对位置
-        let chipPosition = 0;
-        const activePlayers = gameState.players.filter(p => !p.eliminated);
-        const sortedChips = [...activePlayers].sort((a, b) => b.chips - a.chips);
-        const chipRank = sortedChips.findIndex(p => p.id === player.id);
-        const chipPositionPercentile = chipRank / (activePlayers.length - 1);
-        
-        // 大筹码更激进，小筹码更保守，但接近泡沫时例外
-        if (chipPositionPercentile < 0.3) {
-            // 大筹码,更激进
-            tournamentAdjustment = 0.1 - bubbleFactor * 0.25;
-        } else if (chipPositionPercentile > 0.7) {
-            // 小筹码,更冒险(但在泡沫时更保守)
-            tournamentAdjustment = bubbleFactor > 0.6 ? -0.15 : 0.05;
-        } else {
-            // 中等筹码,保守等待
-            tournamentAdjustment = -0.1 - bubbleFactor * 0.1;
+    // 检查当前下注情况
+    const canCheck = player.bet === gameState.currentBet;
+    const callAmount = gameState.currentBet - player.bet;
+    
+    // 根据手牌强度和当前下注情况做决策
+    
+    // 如果可以过牌(check)
+    if (canCheck) {
+        // 手牌强度高时有几率加注
+        if (handStrength > 0.7 && Math.random() < 0.6) {
+            return 'raise';
         }
+        // 否则过牌
+        return 'check';
+    } 
+    // 如果有人已经加注，需要跟注或弃牌
+    else {
+        // 计算跟注成本与玩家剩余筹码的比率
+        const callRatio = callAmount / player.chips;
         
-        // 随着锦标赛后期，盲注增加，整体更加激进
-        if (levelPercentage > 0.7) {
-            tournamentAdjustment += 0.15;
-        } else if (levelPercentage > 0.4) {
-            tournamentAdjustment += 0.05;
+        // 强牌可能加注
+        if (handStrength > 0.8 && Math.random() < 0.7) {
+            return 'raise';
         }
-    }
-    
-    // 应用锦标赛调整
-    handStrength += tournamentAdjustment;
-    
-    // 头对头(两人比赛)策略调整 - 更加激进
-    if (isHeadsUp) {
-        handStrength += 0.15;
-    }
-    
-    // 玩家风格调整
-    if (player.aiLevel === 'aggressive') {
-        handStrength += 0.1;
-    } else if (player.aiLevel === 'conservative') {
-        handStrength -= 0.1;
-    }
-    
-    // 随机因素 - 增加一些不可预测性
-    const randomFactor = Math.random() * 0.2 - 0.1; // -0.1到+0.1的随机值
-    handStrength += randomFactor;
-    
-    // 确保手牌强度在合理范围内
-    handStrength = Math.max(0.1, Math.min(handStrength, 0.95));
-    
-    // 考虑玩家剩余筹码相对于当前底池的大小
-    const chipsToCallRatio = callAmount / playerChips;
-    const potToChipsRatio = gameState.pot / playerChips;
-    
-    // 根据评估值和状态,做出决策
-    let decision = 'fold';
-    
-    // 如果能让牌,先考虑让牌
-    if (callAmount === 0) {
-        if (handStrength > 0.5 || Math.random() < 0.5) {
-            // 选择让牌
-            decision = 'check';
-            
-            // 如果手牌较强，有一定概率加注
-            if (handStrength > 0.7 && Math.random() < handStrength - 0.2) {
-                decision = 'raise';
-            }
-        } else {
-            decision = 'check';
+        // 中等强度牌，根据成本和随机因素决定跟注或弃牌
+        else if (handStrength > 0.5 || (handStrength > 0.3 && callRatio < 0.2)) {
+            return Math.random() < handStrength ? 'call' : 'fold';
         }
-    } else {
-        // 需要跟注
-        
-        // 手牌强度相对于所需跟注的价值评估
-        const callValue = handStrength - potOdds;
-        
-        // 考虑加注
-        if (handStrength > 0.75 || (handStrength > 0.6 && Math.random() < handStrength - 0.3)) {
-            // 如果跟注金额过大或筹码不足，重新考虑是否该加注
-            if (chipsToCallRatio > 0.5 || playerChips <= callAmount * 3) {
-                // 筹码有限，可能不值得加注
-                if (callValue > 0.2) {
-                    decision = 'call';
-                } else {
-                    decision = 'fold';
-                }
-            } else {
-                decision = 'raise';
-            }
-        }
-        // 考虑跟注
-        else if (callValue > 0 || (handStrength > 0.3 && Math.random() < handStrength)) {
-            // 考虑所需跟注金额与筹码的比例
-            if (chipsToCallRatio > 0.7) {
-                // 跟注金额太大，几乎等于全押
-                if (handStrength > 0.6) {
-                    decision = 'call'; // 相当于几乎全押了
-                } else {
-                    decision = 'fold';
-                }
-            } else {
-                decision = 'call';
-            }
-        }
-        // 否则弃牌
+        // 弱牌通常弃牌，但偶尔会诈唬
         else {
-            decision = 'fold';
+            return Math.random() < 0.1 ? 'call' : 'fold';
         }
     }
-    
-    // 特殊情况：资金非常少时的全押策略
-    if (playerChips <= gameState.bigBlind * 5) {
-        if (handStrength > 0.3 || Math.random() < 0.3) {
-            decision = 'allIn';
-        }
-    }
-    
-    // 特殊情况：底池很大时更倾向于跟注而非弃牌
-    if (decision === 'fold' && potToChipsRatio > 2 && handStrength > 0.2) {
-        decision = 'call';
-    }
-    
-    // 特殊情况：全押金额小于强制跟注金额时改为全押
-    if (decision === 'call' && callAmount >= playerChips) {
-        decision = 'allIn';
-    }
-    
-    console.log(`AI玩家${player.name}的手牌强度:${handStrength.toFixed(2)}, 决策:${decision}`);
-    
-    // 返回决策结果
-    return decision;
 }
 
 // 计算手牌强度 (用于AI决策)
@@ -4110,22 +4099,21 @@ function adjustStrengthByRank(rank, communityCardCount, activePlayers) {
 
 // 评估牌型
 function evaluateHandRank(cards) {
-    // 如果牌不足5张，返回当前最高牌型
+    // 如果牌数少于5张，使用简化评估
     if (cards.length < 5) {
-        // 简化评估，仅检查对子、三条等
         return evaluateIncompletHand(cards);
     }
-    
-    // 转换牌值格式以便评估
+
+    // 转换牌值格式
     const valueMap = {
         '2': 2, '3': 3, '4': 4, '5': 5, '6': 6, '7': 7, '8': 8,
         '9': 9, '10': 10, 'J': 11, 'Q': 12, 'K': 13, 'A': 14
     };
     
-    // 统计每个牌值和花色的数量
+    // 统计每个牌值和花色
     const valueCounts = {};
     const suitCounts = {};
-    const cardsByValue = [];
+    const cardsByValue = {};
     
     for (const card of cards) {
         const value = valueMap[card.value];
@@ -4134,135 +4122,134 @@ function evaluateHandRank(cards) {
         valueCounts[value] = (valueCounts[value] || 0) + 1;
         suitCounts[suit] = (suitCounts[suit] || 0) + 1;
         
-        cardsByValue.push({
-            value: value,
-            suit: suit
-        });
+        if (!cardsByValue[value]) {
+            cardsByValue[value] = [];
+        }
+        cardsByValue[value].push(card);
     }
     
-    // 按牌值排序 (从大到小)
-    cardsByValue.sort((a, b) => b.value - a.value);
-    
-    // 检查是否同花
-    let isFlush = false;
+    // 检查是否有同花
     let flushSuit = null;
+    let hasFlush = false;
     for (const suit in suitCounts) {
         if (suitCounts[suit] >= 5) {
-            isFlush = true;
             flushSuit = suit;
+            hasFlush = true;
             break;
         }
     }
     
-    // 检查是否顺子
-    let isStraight = false;
+    // 检查是否有顺子
+    const values = Object.keys(valueCounts).map(Number).sort((a, b) => a - b);
+    let hasStraight = false;
     let straightHighCard = null;
     
-    // 获取不重复的牌值数组
-    const uniqueValues = Object.keys(valueCounts).map(Number).sort((a, b) => b - a);
+    // 特殊检查A-5顺子(钢轮)
+    if (valueCounts[14] && valueCounts[2] && valueCounts[3] && 
+        valueCounts[4] && valueCounts[5]) {
+        hasStraight = true;
+        straightHighCard = 5; // 钢轮的最高牌是5
+    }
     
-    // 特殊情况: A-5-4-3-2 顺子
-    if (uniqueValues.includes(14) && uniqueValues.includes(5) && 
-        uniqueValues.includes(4) && uniqueValues.includes(3) && uniqueValues.includes(2)) {
-        isStraight = true;
-        straightHighCard = 5; // 5高顺子
-    } else {
-        // 检查常规顺子
-        for (let i = 0; i < uniqueValues.length - 4; i++) {
-            if (uniqueValues[i] - uniqueValues[i + 4] === 4) {
-                isStraight = true;
-                straightHighCard = uniqueValues[i];
+    // 检查普通顺子
+    for (let i = 0; i <= values.length - 5; i++) {
+        let isConsecutive = true;
+        for (let j = 0; j < 4; j++) {
+            if (values[i + j + 1] !== values[i + j] + 1) {
+                isConsecutive = false;
                 break;
             }
         }
+        
+        if (isConsecutive) {
+            hasStraight = true;
+            straightHighCard = values[i + 4];
+            break;
+        }
     }
     
-    // 同花顺 & 皇家同花顺
-    if (isFlush && isStraight) {
-        // 检查是否同花顺
-        const flushCards = cardsByValue.filter(card => card.suit === flushSuit);
-        let isFlushStraight = false;
-        let flushStraightHighCard = null;
+    // 同花顺
+    if (hasFlush && hasStraight) {
+        // 检查钢轮同花顺
+        if (straightHighCard === 5 && flushSuit) {
+            const steelWheel = [14, 2, 3, 4, 5].every(value => 
+                cardsByValue[value] && cardsByValue[value].some(card => card.suit === flushSuit)
+            );
+            
+            if (steelWheel) {
+                return { type: 'straight_flush', value: 5 };
+            }
+        }
         
-        // 获取同花的不重复牌值
-        const uniqueFlushValues = [...new Set(flushCards.map(card => card.value))].sort((a, b) => b - a);
+        // 检查普通同花顺
+        const flushCards = cards.filter(card => card.suit === flushSuit);
+        const flushValues = flushCards.map(card => valueMap[card.value]).sort((a, b) => a - b);
         
-        // 特殊情况: 同花A-5-4-3-2顺子
-        if (uniqueFlushValues.includes(14) && uniqueFlushValues.includes(5) && 
-            uniqueFlushValues.includes(4) && uniqueFlushValues.includes(3) && uniqueFlushValues.includes(2)) {
-            isFlushStraight = true;
-            flushStraightHighCard = 5;
-    } else {
-            // 检查常规同花顺
-            for (let i = 0; i < uniqueFlushValues.length - 4; i++) {
-                if (uniqueFlushValues[i] - uniqueFlushValues[i + 4] === 4) {
-                    isFlushStraight = true;
-                    flushStraightHighCard = uniqueFlushValues[i];
+        for (let i = 0; i <= flushValues.length - 5; i++) {
+            let isConsecutive = true;
+            for (let j = 0; j < 4; j++) {
+                if (flushValues[i + j + 1] !== flushValues[i + j] + 1) {
+                    isConsecutive = false;
                     break;
                 }
             }
-        }
-        
-        // 确认是同花顺
-        if (isFlushStraight) {
-            // 皇家同花顺 (10 J Q K A)
-            if (flushStraightHighCard === 14) {
-                return { type: 'royal_flush', value: 14 };
+            
+            if (isConsecutive) {
+                const highCard = flushValues[i + 4];
+                if (highCard === 14) {
+                    return { type: 'royal_flush' };
+                }
+                return { type: 'straight_flush', value: highCard };
             }
-            // 普通同花顺
-            return { type: 'straight_flush', value: flushStraightHighCard };
         }
     }
     
-    // 检查四条
+    // 四条
     for (const value in valueCounts) {
         if (valueCounts[value] === 4) {
             return { type: 'four_of_a_kind', value: Number(value) };
         }
     }
     
-    // 检查葫芦 (三条+对子)
-    let hasThreeOfKind = false;
-    let threeOfKindValue = null;
-    let hasPair = false;
-    let pairValue = null;
+    // 葫芦
+    let threeOfAKind = null;
+    let pair = null;
     
     for (const value in valueCounts) {
         if (valueCounts[value] === 3) {
-            if (!hasThreeOfKind || Number(value) > threeOfKindValue) {
-                hasThreeOfKind = true;
-                threeOfKindValue = Number(value);
+            if (threeOfAKind === null || Number(value) > threeOfAKind) {
+                threeOfAKind = Number(value);
             }
         } else if (valueCounts[value] === 2) {
-            hasPair = true;
-            if (!pairValue || Number(value) > pairValue) {
-                pairValue = Number(value);
+            if (pair === null || Number(value) > pair) {
+                pair = Number(value);
             }
         }
     }
     
-    if (hasThreeOfKind && hasPair) {
-        return { type: 'full_house', value: threeOfKindValue, kicker: pairValue };
+    if (threeOfAKind !== null && pair !== null) {
+        return { type: 'full_house', three: threeOfAKind, two: pair };
     }
     
-    // 检查同花
-    if (isFlush) {
-        const flushCards = cardsByValue.filter(card => card.suit === flushSuit);
-        return { type: 'flush', values: flushCards.slice(0, 5).map(c => c.value) };
+    // 同花
+    if (hasFlush) {
+        const flushCards = cards.filter(card => card.suit === flushSuit);
+        const flushValues = flushCards.map(card => valueMap[card.value]).sort((a, b) => b - a);
+        return { type: 'flush', values: flushValues.slice(0, 5) };
     }
     
-    // 检查顺子
-    if (isStraight) {
+    // 顺子
+    if (hasStraight) {
         return { type: 'straight', value: straightHighCard };
     }
     
-    // 检查三条
-    if (hasThreeOfKind) {
-        return { type: 'three_of_a_kind', value: threeOfKindValue };
+    // 三条
+    if (threeOfAKind !== null) {
+        return { type: 'three_of_a_kind', value: threeOfAKind };
     }
     
-    // 检查两对
-    const pairs = [];
+    // 两对
+    let pairs = [];
     for (const value in valueCounts) {
         if (valueCounts[value] === 2) {
             pairs.push(Number(value));
@@ -4271,16 +4258,17 @@ function evaluateHandRank(cards) {
     
     if (pairs.length >= 2) {
         pairs.sort((a, b) => b - a);
-        return { type: 'two_pair', values: [pairs[0], pairs[1]] };
+        return { type: 'two_pair', values: pairs.slice(0, 2) };
     }
     
-    // 检查对子
-    if (hasPair) {
-        return { type: 'pair', value: pairValue };
+    // 对子
+    if (pairs.length === 1) {
+        return { type: 'pair', value: pairs[0] };
     }
     
     // 高牌
-    return { type: 'high_card', value: cardsByValue[0].value };
+    const highValues = Object.keys(valueCounts).map(Number).sort((a, b) => b - a);
+    return { type: 'high_card', values: highValues.slice(0, 5) };
 }
 
 // 评估不完整的手牌 (少于5张)
@@ -4311,7 +4299,7 @@ function evaluateIncompletHand(cards) {
     }
     
     // 检查对子
-    const pairs = [];
+    let pairs = [];
     for (const value in valueCounts) {
         if (valueCounts[value] === 2) {
             pairs.push(Number(value));
@@ -4327,23 +4315,9 @@ function evaluateIncompletHand(cards) {
         return { type: 'pair', value: pairs[0] };
     }
     
-    // 检查是否可能同花
-    for (const suit in suitCounts) {
-        if (suitCounts[suit] === cards.length) {
-            return { type: 'high_card', value: Math.max(...Object.keys(valueCounts).map(Number)), flushDraw: true };
-        }
-    }
-    
-    // 检查是否可能顺子
-    const values = Object.keys(valueCounts).map(Number).sort((a, b) => a - b);
-    if (values.length >= 2) {
-        if (values[values.length - 1] - values[0] <= 4) {
-            return { type: 'high_card', value: Math.max(...values), straightDraw: true };
-        }
-    }
-    
     // 高牌
-    return { type: 'high_card', value: Math.max(...Object.keys(valueCounts).map(Number)) };
+    const values = Object.keys(valueCounts).map(Number).sort((a, b) => b - a);
+    return { type: 'high_card', value: values[0] };
 }
 
 // 初始化游戏
@@ -4379,8 +4353,8 @@ function initializeTournament() {
 // 启动级别计时器
 function startLevelTimer() {
     // 如果已有计时器，先清除
-        if (gameState.tournament.levelTimer) {
-            clearInterval(gameState.tournament.levelTimer);
+    if (gameState.tournament.levelTimer) {
+        clearInterval(gameState.tournament.levelTimer);
     }
     
     // 设置级别时间（分钟转换为秒）
@@ -4602,6 +4576,13 @@ function handleCheck() {
     // 如果不可以让牌，不执行操作
     if (gameState.currentBet > mainPlayer.bet) {
         console.error("不能让牌，必须跟注或弃牌");
+        // 显示错误信息
+        createActionNotification("不能让牌! 必须跟注或弃牌", { 
+            left: PLAYER_POSITIONS[0].left, 
+            top: PLAYER_POSITIONS[0].top 
+        });
+        // 更新按钮状态
+        updateButtonStates();
         return;
     }
     
@@ -4623,7 +4604,7 @@ function handleCheck() {
     allInBtn.disabled = true;
     
     // 进入下一个玩家
-    setTimeout(() => {
+        setTimeout(() => {
         afterPlayerAction();
     }, 1000);
 }
@@ -4810,14 +4791,53 @@ function handleAllIn() {
 
 // 增强AI决策中的位置因素
 function makeAIDecision(playerIndex) {
-    // 现有代码...
+    // 计算手牌强度
+    const player = gameState.players[playerIndex];
+    let handStrength = calculateHandStrength(player.hand, gameState.communityCards);
     
     // 增加位置因素
     const positions = getRelativePositions(gameState.dealerPosition, gameState.players.length);
     const positionFactor = evaluatePosition(positions[playerIndex]);
     handStrength *= (1 + positionFactor);
     
-    // 继续现有逻辑...
+    // 检查玩家是否已弃牌
+    if (player.folded) {
+        return 'fold';
+    }
+    
+    // 检查当前下注情况
+    const canCheck = player.bet === gameState.currentBet;
+    const callAmount = gameState.currentBet - player.bet;
+    
+    // 根据手牌强度和当前下注情况做决策
+    
+    // 如果可以过牌(check)
+    if (canCheck) {
+        // 手牌强度高时有几率加注
+        if (handStrength > 0.7 && Math.random() < 0.6) {
+            return 'raise';
+        }
+        // 否则过牌
+        return 'check';
+    } 
+    // 如果有人已经加注，需要跟注或弃牌
+    else {
+        // 计算跟注成本与玩家剩余筹码的比率
+        const callRatio = callAmount / player.chips;
+        
+        // 强牌可能加注
+        if (handStrength > 0.8 && Math.random() < 0.7) {
+            return 'raise';
+        }
+        // 中等强度牌，根据成本和随机因素决定跟注或弃牌
+        else if (handStrength > 0.5 || (handStrength > 0.3 && callRatio < 0.2)) {
+            return Math.random() < handStrength ? 'call' : 'fold';
+        }
+        // 弱牌通常弃牌，但偶尔会诈唬
+        else {
+            return Math.random() < 0.1 ? 'call' : 'fold';
+        }
+    }
 }
 
 function evaluatePosition(position) {
@@ -4855,24 +4875,20 @@ function getRelativePositions(dealerPosition, playerCount) {
 
 // 1. 添加边池计算逻辑
 function calculateSidePots() {
-    // 获取所有all-in玩家及其下注金额
-    const allInPlayers = gameState.players.filter(p => p.isAllIn && !p.folded);
-    if (allInPlayers.length === 0) return [{ amount: gameState.pot, eligiblePlayers: gameState.players.filter(p => !p.folded) }];
+    // 查找所有参与玩家并按下注金额排序
+    const playerBets = gameState.players
+        .map((player, index) => ({ index, bet: player.bet }))
+        .sort((a, b) => a.bet - b.bet);
     
-    // 按下注量排序
-    allInPlayers.sort((a, b) => a.bet - b.bet);
-    
+    // 初始化边池数组和剩余底池
     const pots = [];
-    let previousBet = 0;
     let remainingPot = gameState.pot;
+    let previousBet = 0;
     
-    // 为每个all-in玩家计算边池
-    for (const allInPlayer of allInPlayers) {
-        const currentBet = allInPlayer.bet;
-        const betDifference = currentBet - previousBet;
-        
-        if (betDifference > 0) {
-            // 计算此层边池的大小
+    // 计算每个不同的下注额度对应的边池
+    for (const { bet: currentBet } of playerBets) {
+        if (currentBet > previousBet) {
+            const betDifference = currentBet - previousBet;
             const activePlayersCount = gameState.players.filter(p => !p.folded && p.bet >= currentBet).length;
             const potAmount = betDifference * activePlayersCount;
             
@@ -4892,28 +4908,6 @@ function calculateSidePots() {
     }
     
     return pots;
-}
-
-// 2. 改进手牌评估，确保钢板顺被正确识别
-function evaluateHandRank(cards) {
-    // 现有代码...
-    
-    // 检查同花顺
-    if (hasStraight && hasFlush) {
-        // 检查是否为钢板顺(A-2-3-4-5)
-        const hasAce = values.includes(14); // Ace
-        const hasFive = values.includes(5);
-        const hasSteelWheel = hasAce && hasFive && 
-            values.includes(2) && values.includes(3) && values.includes(4);
-            
-        if (hasSteelWheel) {
-            return { type: 'straight_flush', value: 5 }; // 5高的同花顺
-        }
-        
-        // 常规同花顺逻辑...
-    }
-    
-    // 现有代码继续...
 }
 
 // 3. 增加统计和分析功能
@@ -4972,4 +4966,47 @@ function calculateWinningOdds() {
     }
     
     return (wins / simulations) * 100;
+}
+
+// 显示所有玩家的手牌
+function showAllPlayersCards(players) {
+    // 逐个显示玩家的手牌
+    players.forEach(player => {
+        if (player.id !== 0) { // 跳过主玩家，因为主玩家的牌始终可见
+            // 获取该玩家的卡牌元素
+            const playerCardElements = document.querySelectorAll(`.player-${player.id}-card`);
+            if (playerCardElements.length === 2 && player.hand.length === 2) {
+                // 更新卡牌显示
+                for (let i = 0; i < 2; i++) {
+                    const card = player.hand[i];
+                    const cardElement = playerCardElements[i];
+                    
+                    // 设置卡牌内容和样式
+                    cardElement.textContent = getCardDisplay(card);
+                    cardElement.className = `card ${getCardColor(card)}`;
+                    cardElement.style.backgroundColor = 'white';
+                    
+                    // 添加翻转动画
+                    cardElement.classList.add('flip-card');
+                    
+                    // 动画结束后移除翻转类
+                    setTimeout(() => {
+                        cardElement.classList.remove('flip-card');
+                    }, 1000);
+                }
+                
+                // 播放翻牌声音
+                playSound('card');
+                
+                // 确保玩家头像正确显示
+                const playerAvatar = document.querySelector(`#player${player.id} .avatar-image`);
+                if (playerAvatar && (!playerAvatar.complete || playerAvatar.naturalHeight === 0)) {
+                    playerAvatar.src = `https://api.multiavatar.com/${player.name}.svg`;
+                }
+            }
+        }
+    });
+    
+    // 添加到历史记录
+    addHistoryItem('系统', '所有玩家亮出手牌', null, true);
 }

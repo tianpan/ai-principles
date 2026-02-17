@@ -1,0 +1,2 @@
+const fs = require('fs'); const path = require('path'); const filePath = path.join(__dirname, 'js', 'app.js'); let content = fs.readFileSync(filePath, 'utf8'); const secondFunctionPattern = /\/\/ 增强AI决策中的位置因素\s*
+function makeAIDecision\(playerIndex\) \{[\s\S]+?(?=function evaluatePosition)/; content = content.replace(secondFunctionPattern, ''); fs.writeFileSync(filePath, content, 'utf8'); console.log('成功删除重复的makeAIDecision函数');

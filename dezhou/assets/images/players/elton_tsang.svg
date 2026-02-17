@@ -1,0 +1,11 @@
+<svg width="200" height="200" xmlns="http://www.w3.org/2000/svg">
+    <rect width="200" height="200" fill="#43A047" />
+    <text x="50%" y="50%" font-family="Arial, sans-serif" font-size="80" font-weight="bold" 
+          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">ET</text>
+    <text x="50%" y="85%" font-family="Arial, sans-serif" font-size="16" 
+          fill="#FFFFFF" text-anchor="middle" dominant-baseline="middle">
+        Elton Tsang
+    </text>
+    <text x="85%" y="20%" font-family="Arial" font-size="24" fill="#000000">S</text>
+    <text x="15%" y="80%" font-family="Arial" font-size="24" fill="#000000">S</text>
+</svg>
