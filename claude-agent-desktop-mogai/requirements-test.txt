@@ -1,0 +1,44 @@
+# Towngas Manus 测试依赖
+# ======================
+#
+# 安装测试依赖：
+#   pip install -r requirements-test.txt
+#
+# 运行测试：
+#   pytest
+#
+# 运行带覆盖率的测试：
+#   pytest --cov=backend/app --cov-report=html
+
+# 测试框架
+pytest>=7.4.0
+pytest-asyncio>=0.21.0
+
+# 覆盖率工具
+pytest-cov>=4.1.0
+coverage>=7.3.0
+
+# 异步测试支持
+pytest-aiohttp>=1.0.0
+
+# HTTP 客户端（用于 API 测试）
+httpx>=0.24.0
+
+# Web 框架（用于测试 API）
+fastapi>=0.100.0
+
+# 数据验证
+pydantic>=2.0.0
+
+# Mock 工具
+pytest-mock>=3.11.0
+
+# 测试报告
+pytest-html>=3.2.0
+pytest-json-report>=1.5.0
+
+# 性能测试
+pytest-benchmark>=4.0.0
+
+# 代码质量
+pytest-pylint>=0.21.0

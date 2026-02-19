@@ -1,0 +1,102 @@
+# ===========================================
+# Towngas Manus - Docker Compose 配置
+# ===========================================
+# 项目：港华智能体平台
+# 用途：本地开发和服务编排
+# ===========================================
+
+version: "3.8"
+
+services:
+  # ===========================================
+  # 后端服务
+  # ===========================================
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: towngas-manus-backend
+    restart: unless-stopped
+    ports:
+      - "${HOST_PORT:-8000}:8000"
+    environment:
+      # 应用配置
+      - APP_NAME=${APP_NAME:-Towngas Manus}
+      - APP_VERSION=${APP_VERSION:-1.0.0}
+      # API 配置
+      - ANTHROPIC_API_KEY=${ANTHROPIC_API_KEY}
+      - ANTHROPIC_MODEL=${ANTHROPIC_MODEL:-claude-sonnet-4-5}
+      # 数据库配置（可选）
+      - DATABASE_URL=${DATABASE_URL:-}
+      # Redis 配置（可选）
+      - REDIS_URL=${REDIS_URL:-}
+      # 日志配置
+      - LOG_LEVEL=${LOG_LEVEL:-INFO}
+      # CORS 配置
+      - CORS_ORIGINS=${CORS_ORIGINS:-*}
+    volumes:
+      # 数据持久化
+      - ./data:/app/data
+      # 日志持久化
+      - ./logs:/app/logs
+      # 文件存储
+      - ./files:/app/files
+      # 开发模式下挂载代码（热重载）
+      # - ./backend:/app/backend:ro
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - towngas-network
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: "2"
+          memory: 4G
+        reservations:
+          cpus: "0.5"
+          memory: 512M
+
+  # ===========================================
+  # Redis 服务（可选，用于缓存和会话）
+  # ===========================================
+  redis:
+    image: redis:7-alpine
+    container_name: towngas-manus-redis
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    volumes:
+      - redis-data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+    networks:
+      - towngas-network
+    deploy:
+      resources:
+        limits:
+          cpus: "0.5"
+          memory: 512M
+
+# ===========================================
+# 网络配置
+# ===========================================
+networks:
+  towngas-network:
+    driver: bridge
+    name: towngas-manus-network
+
+# ===========================================
+# 卷配置
+# ===========================================
+volumes:
+  redis-data:
+    name: towngas-manus-redis-data
