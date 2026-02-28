@@ -36,7 +36,7 @@ export default defineConfig({
         },
       ],
       social: {
-        github: 'https://github.com/anthropics/anthropic-cookbook',
+        github: 'https://github.com/tianpan/ai-principles',
       },
     }),
     react(),
@@ -45,5 +45,6 @@ export default defineConfig({
     }),
   ],
   output: 'static',
-  site: 'https://ai-principles.dev',
+  site: 'https://tianpan.github.io',
+  base: '/ai-principles',
 });
