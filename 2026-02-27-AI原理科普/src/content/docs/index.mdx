@@ -1,0 +1,88 @@
+---
+title: 欢迎
+description: 从零开始理解 AI，亲手实现 Transformer
+---
+
+import { Card, CardGrid, Badge } from '@astrojs/starlight/components';
+
+# 欢迎来到 AI 原理科普
+
+**目标**：让你从"看懂 Transformer"走到"从零实现一个最小可运行 Transformer"。
+
+## 为什么选择这个教程？
+
+- **零基础可达**：用类比和可视化代替公式堆砌
+- **亲手实践**：每个概念都有可运行的代码
+- **完整闭环**：从概念理解 → 交互体验 → 代码实现 → 训练验证
+
+---
+
+## 学习路径
+
+### 阶段一：基础准备 <Badge text="15分钟" variant="tip" />
+
+<CardGrid stagger>
+  <Card title="预备知识" icon="open-book" href="/prerequisites">
+    回顾向量、矩阵、神经网络基础概念
+  </Card>
+</CardGrid>
+
+### 阶段二：Transformer 核心 <Badge text="2小时" variant="note" />
+
+<CardGrid stagger>
+  <Card title="2.1 Token & Embedding" icon="puzzle" href="/chapter2/1-token-embedding">
+    文本如何变成数字？向量表示的意义
+  </Card>
+  <Card title="2.2 Self-Attention" icon="gear" href="/chapter2/2-self-attention">
+    注意力机制：让模型"关注"重要信息
+  </Card>
+  <Card title="2.3 Multi-Head Attention" icon="gears" href="/chapter2/3-multi-head-attention">
+    多头并行：从不同角度理解
+  </Card>
+  <Card title="2.4 Positional Encoding" icon="clock" href="/chapter2/4-positional-encoding">
+    为序列注入位置信息
+  </Card>
+  <Card title="2.5 残差连接 & LayerNorm" icon="layers" href="/chapter2/5-residual-layernorm">
+    稳定训练的关键技巧
+  </Card>
+  <Card title="2.6 FFN & 输出层" icon="right-arrow" href="/chapter2/6-ffn-output">
+    前馈网络与最终预测
+  </Card>
+</CardGrid>
+
+### 阶段三：动手实践 <Badge text="1小时" variant="caution" />
+
+<CardGrid stagger>
+  <Card title="实验室介绍" icon="flask" href="/lab/intro">
+    了解 Mini Transformer Lab
+  </Card>
+  <Card title="代码实现" icon="code" href="/lab/implementation">
+    从零实现各个模块
+  </Card>
+  <Card title="训练与推理" icon="play" href="/lab/training">
+    训练模型并生成文本
+  </Card>
+</CardGrid>
+
+---
+
+## 学习成果
+
+完成本教程后，你将能够：
+
+1. ✅ 解释 Transformer 各模块"在做什么、为什么需要"
+2. ✅ 手动走通一次简化的 attention 计算流程
+3. ✅ 从零实现最小可运行 Transformer 并完成训练与生成演示
+
+---
+
+## 如何使用本教程
+
+1. **按顺序学习**：章节之间有依赖关系，建议从头开始
+2. **动手实验**：每个交互组件都可以调整参数，尝试不同设置
+3. **理解代码**：Lab 部分的代码可以直接运行，修改参数观察变化
+4. **完成验收**：最终目标是让训练 loss 下降 30%+，生成 20+ 个 token
+
+---
+
+准备好了吗？[开始预备知识学习 →](/prerequisites)
