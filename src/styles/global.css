@@ -189,3 +189,6 @@
     }
   }
 }
+
+/* 导入动画样式 */
+@import './animations.css';

@@ -29,6 +29,7 @@ export default defineConfig({
         {
           label: 'Mini Transformer Lab',
           items: [
+            { label: '交互实验室', slug: 'lab/playground' },
             { label: '实验室介绍', slug: 'lab/intro' },
             { label: '代码实现', slug: 'lab/implementation' },
             { label: '训练与推理', slug: 'lab/training' },
