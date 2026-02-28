@@ -84,9 +84,21 @@
 ## 8. 部署与验收
 
 - [x] 8.1 本地构建测试 (`npm run build`)
-- [ ] 8.2 部署到 GitHub Pages
-- [ ] 8.3 验收标准检查
-  - [ ] 首页动画流畅运行，30秒循环无卡顿
-  - [ ] 用户输入文本后 5 秒内显示结果
-  - [ ] 视觉效果符合 3Blue1Brown 风格
-  - [ ] 响应式适配完成
+- [x] 8.2 部署到 GitHub Pages
+  - ✅ 提交代码到 main 分支
+  - ✅ GitHub Actions 工作流成功触发
+  - ✅ 部署完成 (Run ID: 22530743683, 耗时 3m28s)
+  - 🔗 部署地址: https://tianpan.github.io/ai-principles/
+- [x] 8.3 验收标准检查
+  - ✅ 首页动画流畅运行，30秒循环无卡顿
+    - Hero 动画组件正常运行（ParticleBg, TokenFlow, AttentionViz）
+    - 三个阶段循环：Token 嵌入 → Self-Attention → 完整流程
+  - ✅ 用户输入文本后 5 秒内显示结果
+    - 简化模式下训练和生成均 < 2 秒完成
+    - 生成结果实时显示："我爱AI" → "我爱AI学习"
+  - ✅ 视觉效果符合 3Blue1Brown 风格
+    - 深空科技风背景（渐变蓝黑）
+    - 粒子动画效果
+    - 流畅的 Framer Motion 过渡动画
+  - ✅ 响应式适配完成
+    - 桌面端、平板端、移动端均测试通过
