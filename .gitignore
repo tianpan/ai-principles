@@ -1,0 +1,43 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+
+# Astro
+.astro/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+.Python
+*.so
+.venv/
+venv/
+ENV/
+
+# Test
+coverage/
+.coverage
+.pytest_cache/
+test-results/
+
+# Playwright
+playwright-report/
+playwright/.cache/
+
+# Env
+.env
+.env.local
+.env.*.local
