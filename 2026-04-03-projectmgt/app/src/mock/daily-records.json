@@ -1,0 +1,2558 @@
+{
+    "dailyRecords": [
+        {
+            "id": 1,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-28",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T17:00:00Z",
+            "attendance": {
+                "id": 1,
+                "dailyRecordId": 1,
+                "photoUrl": "/placeholder/meeting1.jpg",
+                "gpsLocation": "32.06N, 118.79E",
+                "safetyBriefingType": "动火作业",
+                "safetyBriefingId": 2,
+                "signatureUrl": "/placeholder/signature1.png",
+                "attendeeIds": [
+                    6,
+                    7,
+                    8
+                ],
+                "highRiskWork": {
+                    "type": "动火作业",
+                    "permitNo": "HP-20260328-001"
+                }
+            }
+        },
+        {
+            "id": 2,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-28",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-28T18:00:00Z",
+            "progress": [
+                {
+                    "id": 1,
+                    "dailyRecordId": 2,
+                    "workItemId": 1,
+                    "completedQuantity": 60,
+                    "photoUrls": []
+                },
+                {
+                    "id": 2,
+                    "dailyRecordId": 2,
+                    "workItemId": 2,
+                    "completedQuantity": 50,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-28",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-28T19:10:00Z",
+            "materials": [
+                {
+                    "id": 1,
+                    "dailyRecordId": 3,
+                    "requisitionNo": "MR-20260328-001",
+                    "materialName": "PE管",
+                    "specification": "DN110",
+                    "quantity": 50,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 2,
+                    "dailyRecordId": 3,
+                    "requisitionNo": "MR-20260328-002",
+                    "materialName": "钢管",
+                    "specification": "DN100",
+                    "quantity": 20,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-28",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T20:00:00Z",
+            "siteRecord": {
+                "id": 1,
+                "dailyRecordId": 4,
+                "formData": {
+                    "recordType": "管线安装",
+                    "location": "K0+000 ~ K0+060",
+                    "diameter": "DN110",
+                    "material": "PE管",
+                    "length": 60,
+                    "depth": 1.2,
+                    "width": 0.5
+                },
+                "photoUrls": [
+                    "/placeholder/site1.jpg",
+                    "/placeholder/site2.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 5,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-28",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T17:00:00Z",
+            "attendance": {
+                "id": 2,
+                "dailyRecordId": 5,
+                "photoUrl": "/placeholder/meeting5.jpg",
+                "gpsLocation": "32.05N, 118.78E",
+                "safetyBriefingType": "通用",
+                "safetyBriefingId": 1,
+                "signatureUrl": "/placeholder/signature5.png",
+                "attendeeIds": [
+                    6,
+                    10,
+                    12
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 6,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-28",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-28T18:00:00Z",
+            "progress": [
+                {
+                    "id": 3,
+                    "dailyRecordId": 6,
+                    "workItemId": 7,
+                    "completedQuantity": 35,
+                    "photoUrls": [
+                        "/placeholder/progress3.jpg"
+                    ]
+                },
+                {
+                    "id": 4,
+                    "dailyRecordId": 6,
+                    "workItemId": 8,
+                    "completedQuantity": 3,
+                    "photoUrls": []
+                },
+                {
+                    "id": 5,
+                    "dailyRecordId": 6,
+                    "workItemId": 9,
+                    "completedQuantity": 30,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-28",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T19:10:00Z",
+            "materials": [
+                {
+                    "id": 3,
+                    "dailyRecordId": 7,
+                    "requisitionNo": "MR-20260328-003",
+                    "materialName": "PE管",
+                    "specification": "DN110",
+                    "quantity": 40,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 4,
+                    "dailyRecordId": 7,
+                    "requisitionNo": "MR-20260328-004",
+                    "materialName": "三通",
+                    "specification": "DN110",
+                    "quantity": 10,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-28",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T20:00:00Z",
+            "siteRecord": {
+                "id": 2,
+                "dailyRecordId": 8,
+                "formData": {
+                    "recordType": "管线安装",
+                    "location": "支管A段 0~35m",
+                    "diameter": "DN110",
+                    "material": "PE管",
+                    "length": 35,
+                    "depth": 1,
+                    "width": 0.4
+                },
+                "photoUrls": [
+                    "/placeholder/site2.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 9,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-28",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T17:00:00Z",
+            "attendance": {
+                "id": 3,
+                "dailyRecordId": 9,
+                "photoUrl": "/placeholder/meeting9.jpg",
+                "gpsLocation": "32.04N, 118.76E",
+                "safetyBriefingType": "通用",
+                "safetyBriefingId": 1,
+                "signatureUrl": "/placeholder/signature9.png",
+                "attendeeIds": [
+                    7,
+                    8
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 10,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-28",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-28T18:00:00Z",
+            "progress": []
+        },
+        {
+            "id": 11,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-28",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T19:10:00Z",
+            "materials": [
+                {
+                    "id": 5,
+                    "dailyRecordId": 11,
+                    "requisitionNo": "MR-20260328-005",
+                    "materialName": "警示带",
+                    "specification": "标准",
+                    "quantity": 200,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-28",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-28T20:00:00Z",
+            "siteRecord": {
+                "id": 3,
+                "dailyRecordId": 12,
+                "formData": {
+                    "recordType": "管沟开挖",
+                    "location": "1号楼前 0~20m",
+                    "length": 20,
+                    "depth": 1.2,
+                    "width": 0.5
+                },
+                "photoUrls": [
+                    "/placeholder/site3.jpg",
+                    "/placeholder/site4.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 13,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-29",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T18:05:00Z",
+            "attendance": {
+                "id": 4,
+                "dailyRecordId": 13,
+                "photoUrl": "/placeholder/meeting13.jpg",
+                "gpsLocation": "32.06N, 118.79E",
+                "safetyBriefingType": "管线焊接",
+                "safetyBriefingId": 5,
+                "signatureUrl": "/placeholder/signature13.png",
+                "attendeeIds": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 14,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-29",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-29T19:05:00Z",
+            "progress": [
+                {
+                    "id": 6,
+                    "dailyRecordId": 14,
+                    "workItemId": 1,
+                    "completedQuantity": 55,
+                    "photoUrls": [
+                        "/placeholder/progress6.jpg"
+                    ]
+                },
+                {
+                    "id": 7,
+                    "dailyRecordId": 14,
+                    "workItemId": 2,
+                    "completedQuantity": 45,
+                    "photoUrls": []
+                },
+                {
+                    "id": 8,
+                    "dailyRecordId": 14,
+                    "workItemId": 3,
+                    "completedQuantity": 1,
+                    "photoUrls": []
+                },
+                {
+                    "id": 9,
+                    "dailyRecordId": 14,
+                    "workItemId": 4,
+                    "completedQuantity": 30,
+                    "photoUrls": [
+                        "/placeholder/progress9.jpg"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 15,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-29",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-29T110:12:00Z",
+            "materials": [
+                {
+                    "id": 6,
+                    "dailyRecordId": 15,
+                    "requisitionNo": "MR-20260329-006",
+                    "materialName": "PE管",
+                    "specification": "DN160",
+                    "quantity": 40,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 7,
+                    "dailyRecordId": 15,
+                    "requisitionNo": null,
+                    "materialName": "挖掘机",
+                    "specification": "中型",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "挖掘机",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-29",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T20:01:00Z",
+            "siteRecord": {
+                "id": 4,
+                "dailyRecordId": 16,
+                "formData": {
+                    "recordType": "管沟开挖",
+                    "location": "K0+060 ~ K0+105",
+                    "length": 45,
+                    "depth": 1.5,
+                    "width": 0.6
+                },
+                "photoUrls": [
+                    "/placeholder/site4.jpg"
+                ],
+                "sketchPhotoUrls": [
+                    "/placeholder/sketch4.jpg"
+                ],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 17,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-29",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T18:05:00Z",
+            "attendance": {
+                "id": 5,
+                "dailyRecordId": 17,
+                "photoUrl": "/placeholder/meeting17.jpg",
+                "gpsLocation": "32.05N, 118.78E",
+                "safetyBriefingType": "管线焊接",
+                "safetyBriefingId": 5,
+                "signatureUrl": "/placeholder/signature17.png",
+                "attendeeIds": [
+                    6,
+                    10,
+                    12,
+                    13
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 18,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-29",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-29T19:05:00Z",
+            "progress": [
+                {
+                    "id": 10,
+                    "dailyRecordId": 18,
+                    "workItemId": 7,
+                    "completedQuantity": 40,
+                    "photoUrls": []
+                },
+                {
+                    "id": 11,
+                    "dailyRecordId": 18,
+                    "workItemId": 8,
+                    "completedQuantity": 4,
+                    "photoUrls": []
+                },
+                {
+                    "id": 12,
+                    "dailyRecordId": 18,
+                    "workItemId": 9,
+                    "completedQuantity": 35,
+                    "photoUrls": [
+                        "/placeholder/progress12.jpg"
+                    ]
+                },
+                {
+                    "id": 13,
+                    "dailyRecordId": 18,
+                    "workItemId": 10,
+                    "completedQuantity": 1,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 19,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-29",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T110:12:00Z",
+            "materials": [
+                {
+                    "id": 8,
+                    "dailyRecordId": 19,
+                    "requisitionNo": "MR-20260329-008",
+                    "materialName": "PE管",
+                    "specification": "DN160",
+                    "quantity": 35,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 9,
+                    "dailyRecordId": 19,
+                    "requisitionNo": "MR-20260329-009",
+                    "materialName": "燃气表",
+                    "specification": "G4",
+                    "quantity": 4,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 20,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-29",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T20:01:00Z",
+            "siteRecord": {
+                "id": 5,
+                "dailyRecordId": 20,
+                "formData": {
+                    "recordType": "入户改造",
+                    "location": "3号楼 101-104室",
+                    "diameter": "DN20",
+                    "material": "铝塑管",
+                    "length": 12
+                },
+                "photoUrls": [
+                    "/placeholder/site5.jpg",
+                    "/placeholder/site6.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 21,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-29",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T18:05:00Z",
+            "attendance": {
+                "id": 6,
+                "dailyRecordId": 21,
+                "photoUrl": "/placeholder/meeting21.jpg",
+                "gpsLocation": "32.04N, 118.76E",
+                "safetyBriefingType": "通用",
+                "safetyBriefingId": 1,
+                "signatureUrl": "/placeholder/signature21.png",
+                "attendeeIds": [
+                    7,
+                    8,
+                    15
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 22,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-29",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-29T19:05:00Z",
+            "progress": []
+        },
+        {
+            "id": 23,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-29",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T110:12:00Z",
+            "materials": [
+                {
+                    "id": 10,
+                    "dailyRecordId": 23,
+                    "requisitionNo": "MR-20260329-010",
+                    "materialName": "标志桩",
+                    "specification": "混凝土",
+                    "quantity": 20,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 11,
+                    "dailyRecordId": 23,
+                    "requisitionNo": null,
+                    "materialName": "发电机",
+                    "specification": "30kW",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "发电机",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 24,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-29",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-29T20:01:00Z",
+            "siteRecord": {
+                "id": 6,
+                "dailyRecordId": 24,
+                "formData": {
+                    "recordType": "管沟开挖",
+                    "location": "2号楼前 0~25m",
+                    "length": 25,
+                    "depth": 1.2,
+                    "width": 0.5
+                },
+                "photoUrls": [
+                    "/placeholder/site6.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 25,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-30",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T17:05:00Z",
+            "attendance": {
+                "id": 7,
+                "dailyRecordId": 25,
+                "photoUrl": "/placeholder/meeting25.jpg",
+                "gpsLocation": "32.06N, 118.79E",
+                "safetyBriefingType": "通用",
+                "safetyBriefingId": 1,
+                "signatureUrl": "/placeholder/signature25.png",
+                "attendeeIds": [
+                    6,
+                    7,
+                    8,
+                    9,
+                    10
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 26,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-30",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-30T18:00:00Z",
+            "progress": [
+                {
+                    "id": 14,
+                    "dailyRecordId": 26,
+                    "workItemId": 1,
+                    "completedQuantity": 70,
+                    "photoUrls": []
+                },
+                {
+                    "id": 15,
+                    "dailyRecordId": 26,
+                    "workItemId": 2,
+                    "completedQuantity": 60,
+                    "photoUrls": [
+                        "/placeholder/progress15.jpg"
+                    ]
+                },
+                {
+                    "id": 16,
+                    "dailyRecordId": 26,
+                    "workItemId": 4,
+                    "completedQuantity": 40,
+                    "photoUrls": []
+                },
+                {
+                    "id": 17,
+                    "dailyRecordId": 26,
+                    "workItemId": 6,
+                    "completedQuantity": 50,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 27,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-30",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-30T19:14:00Z",
+            "materials": [
+                {
+                    "id": 12,
+                    "dailyRecordId": 27,
+                    "requisitionNo": "MR-20260330-012",
+                    "materialName": "PE管",
+                    "specification": "DN200",
+                    "quantity": 60,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 13,
+                    "dailyRecordId": 27,
+                    "requisitionNo": "MR-20260330-013",
+                    "materialName": "弯头",
+                    "specification": "DN110",
+                    "quantity": 15,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 28,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-30",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T20:02:00Z",
+            "siteRecord": {
+                "id": 7,
+                "dailyRecordId": 28,
+                "formData": {
+                    "recordType": "管线安装",
+                    "location": "K0+105 ~ K0+175",
+                    "diameter": "DN200",
+                    "material": "PE管",
+                    "length": 70,
+                    "depth": 1.5,
+                    "width": 0.6
+                },
+                "photoUrls": [
+                    "/placeholder/site7.jpg",
+                    "/placeholder/site8.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": true
+            }
+        },
+        {
+            "id": 29,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-30",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T17:05:00Z",
+            "attendance": {
+                "id": 8,
+                "dailyRecordId": 29,
+                "photoUrl": "/placeholder/meeting29.jpg",
+                "gpsLocation": "32.05N, 118.78E",
+                "safetyBriefingType": "基坑开挖",
+                "safetyBriefingId": 4,
+                "signatureUrl": "/placeholder/signature29.png",
+                "attendeeIds": [
+                    6,
+                    10,
+                    12,
+                    13,
+                    14
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 30,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-30",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-30T18:00:00Z",
+            "progress": [
+                {
+                    "id": 18,
+                    "dailyRecordId": 30,
+                    "workItemId": 7,
+                    "completedQuantity": 45,
+                    "photoUrls": [
+                        "/placeholder/progress18.jpg"
+                    ]
+                },
+                {
+                    "id": 19,
+                    "dailyRecordId": 30,
+                    "workItemId": 8,
+                    "completedQuantity": 5,
+                    "photoUrls": []
+                },
+                {
+                    "id": 20,
+                    "dailyRecordId": 30,
+                    "workItemId": 9,
+                    "completedQuantity": 40,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 31,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-30",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T19:14:00Z",
+            "materials": [
+                {
+                    "id": 14,
+                    "dailyRecordId": 31,
+                    "requisitionNo": "MR-20260330-014",
+                    "materialName": "铝塑管",
+                    "specification": "DN20",
+                    "quantity": 100,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 15,
+                    "dailyRecordId": 31,
+                    "requisitionNo": null,
+                    "materialName": "挖掘机",
+                    "specification": "中型",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "挖掘机",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 32,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-30",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T20:02:00Z",
+            "siteRecord": {
+                "id": 8,
+                "dailyRecordId": 32,
+                "formData": {
+                    "recordType": "管沟开挖",
+                    "location": "支管B段 0~40m",
+                    "length": 40,
+                    "depth": 1.2,
+                    "width": 0.5
+                },
+                "photoUrls": [
+                    "/placeholder/site8.jpg"
+                ],
+                "sketchPhotoUrls": [
+                    "/placeholder/sketch8.jpg"
+                ],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 33,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-30",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T17:05:00Z",
+            "attendance": {
+                "id": 9,
+                "dailyRecordId": 33,
+                "photoUrl": "/placeholder/meeting33.jpg",
+                "gpsLocation": "32.04N, 118.76E",
+                "safetyBriefingType": "通用",
+                "safetyBriefingId": 1,
+                "signatureUrl": "/placeholder/signature33.png",
+                "attendeeIds": [
+                    7,
+                    8,
+                    15
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 34,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-30",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-30T18:00:00Z",
+            "progress": []
+        },
+        {
+            "id": 35,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-30",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T19:14:00Z",
+            "materials": [
+                {
+                    "id": 16,
+                    "dailyRecordId": 35,
+                    "requisitionNo": "MR-20260330-016",
+                    "materialName": "PE管",
+                    "specification": "DN160",
+                    "quantity": 30,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 36,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-30",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-30T20:02:00Z",
+            "siteRecord": {
+                "id": 9,
+                "dailyRecordId": 36,
+                "formData": {
+                    "recordType": "旧管拆除",
+                    "location": "3号楼东侧",
+                    "diameter": "DN80",
+                    "material": "钢管",
+                    "length": 30,
+                    "depth": 1,
+                    "width": 0.4
+                },
+                "photoUrls": [
+                    "/placeholder/site9.jpg",
+                    "/placeholder/site10.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 37,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-31",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-31T18:00:00Z",
+            "attendance": {
+                "id": 10,
+                "dailyRecordId": 37,
+                "photoUrl": "/placeholder/meeting37.jpg",
+                "gpsLocation": "32.06N, 118.79E",
+                "safetyBriefingType": "动火作业",
+                "safetyBriefingId": 2,
+                "signatureUrl": "/placeholder/signature37.png",
+                "attendeeIds": [
+                    6,
+                    7,
+                    8,
+                    9,
+                    10,
+                    11
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 38,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-31",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-31T19:05:00Z",
+            "progress": [
+                {
+                    "id": 21,
+                    "dailyRecordId": 38,
+                    "workItemId": 1,
+                    "completedQuantity": 65,
+                    "photoUrls": [
+                        "/placeholder/progress21.jpg"
+                    ]
+                },
+                {
+                    "id": 22,
+                    "dailyRecordId": 38,
+                    "workItemId": 2,
+                    "completedQuantity": 55,
+                    "photoUrls": []
+                },
+                {
+                    "id": 23,
+                    "dailyRecordId": 38,
+                    "workItemId": 3,
+                    "completedQuantity": 2,
+                    "photoUrls": []
+                },
+                {
+                    "id": 24,
+                    "dailyRecordId": 38,
+                    "workItemId": 4,
+                    "completedQuantity": 50,
+                    "photoUrls": [
+                        "/placeholder/progress24.jpg"
+                    ]
+                },
+                {
+                    "id": 25,
+                    "dailyRecordId": 38,
+                    "workItemId": 6,
+                    "completedQuantity": 60,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 39,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-31",
+            "moduleType": "材料",
+            "status": "已退回",
+            "reviewComment": "领料单号缺失，请补充",
+            "reviewedAt": "2026-03-31T110:16:00Z",
+            "materials": [
+                {
+                    "id": 17,
+                    "dailyRecordId": 39,
+                    "requisitionNo": "",
+                    "materialName": "阀门",
+                    "specification": "DN100",
+                    "quantity": 3,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 18,
+                    "dailyRecordId": 39,
+                    "requisitionNo": null,
+                    "materialName": "吊车",
+                    "specification": "25吨",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "吊车",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 40,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-03-31",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-31T20:00:00Z",
+            "siteRecord": {
+                "id": 10,
+                "dailyRecordId": 40,
+                "formData": {
+                    "recordType": "阀门安装",
+                    "location": "K0+200 阀门井",
+                    "diameter": "DN100",
+                    "depth": 2,
+                    "width": 1.2
+                },
+                "photoUrls": [
+                    "/placeholder/site10.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 41,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-31",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-31T18:00:00Z",
+            "attendance": {
+                "id": 11,
+                "dailyRecordId": 41,
+                "photoUrl": "/placeholder/meeting41.jpg",
+                "gpsLocation": "32.05N, 118.78E",
+                "safetyBriefingType": "动火作业",
+                "safetyBriefingId": 2,
+                "signatureUrl": "/placeholder/signature41.png",
+                "attendeeIds": [
+                    6,
+                    10,
+                    12,
+                    13
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 42,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-31",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-31T19:05:00Z",
+            "progress": [
+                {
+                    "id": 26,
+                    "dailyRecordId": 42,
+                    "workItemId": 7,
+                    "completedQuantity": 50,
+                    "photoUrls": []
+                },
+                {
+                    "id": 27,
+                    "dailyRecordId": 42,
+                    "workItemId": 8,
+                    "completedQuantity": 4,
+                    "photoUrls": [
+                        "/placeholder/progress27.jpg"
+                    ]
+                },
+                {
+                    "id": 28,
+                    "dailyRecordId": 42,
+                    "workItemId": 9,
+                    "completedQuantity": 45,
+                    "photoUrls": []
+                },
+                {
+                    "id": 29,
+                    "dailyRecordId": 42,
+                    "workItemId": 10,
+                    "completedQuantity": 1,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 43,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-31",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-31T110:16:00Z",
+            "materials": [
+                {
+                    "id": 19,
+                    "dailyRecordId": 43,
+                    "requisitionNo": "MR-20260331-019",
+                    "materialName": "阀门",
+                    "specification": "DN150",
+                    "quantity": 2,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 20,
+                    "dailyRecordId": 43,
+                    "requisitionNo": null,
+                    "materialName": "装载机",
+                    "specification": "小型",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "装载机",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 44,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-03-31",
+            "moduleType": "施工记录",
+            "status": "已退回",
+            "reviewComment": "数量有误，请核实",
+            "reviewedAt": "2026-03-31T20:00:00Z",
+            "siteRecord": {
+                "id": 11,
+                "dailyRecordId": 44,
+                "formData": {
+                    "recordType": "阀门安装",
+                    "location": "B段阀门井",
+                    "diameter": "DN150",
+                    "depth": 1.8,
+                    "width": 1
+                },
+                "photoUrls": [
+                    "/placeholder/site11.jpg",
+                    "/placeholder/site12.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 45,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-31",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-31T18:00:00Z",
+            "attendance": {
+                "id": 12,
+                "dailyRecordId": 45,
+                "photoUrl": "/placeholder/meeting45.jpg",
+                "gpsLocation": "32.04N, 118.76E",
+                "safetyBriefingType": "高处作业",
+                "safetyBriefingId": 3,
+                "signatureUrl": "/placeholder/signature45.png",
+                "attendeeIds": [
+                    7,
+                    8,
+                    15,
+                    16
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 46,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-31",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-03-31T19:05:00Z",
+            "progress": []
+        },
+        {
+            "id": 47,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-31",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-31T110:16:00Z",
+            "materials": [
+                {
+                    "id": 21,
+                    "dailyRecordId": 47,
+                    "requisitionNo": null,
+                    "materialName": "旧管切割机",
+                    "specification": "电动",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "旧管切割机",
+                    "equipmentShifts": 1
+                },
+                {
+                    "id": 22,
+                    "dailyRecordId": 47,
+                    "requisitionNo": "MR-20260331-022",
+                    "materialName": "铝塑管",
+                    "specification": "DN20",
+                    "quantity": 50,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 48,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-03-31",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-03-31T20:00:00Z",
+            "siteRecord": {
+                "id": 12,
+                "dailyRecordId": 48,
+                "formData": {
+                    "recordType": "旧管拆除",
+                    "location": "4号楼北侧",
+                    "diameter": "DN80",
+                    "material": "钢管",
+                    "length": 25,
+                    "depth": 1,
+                    "width": 0.4
+                },
+                "photoUrls": [
+                    "/placeholder/site12.jpg"
+                ],
+                "sketchPhotoUrls": [
+                    "/placeholder/sketch12.jpg"
+                ],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 49,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-01",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-04-01T17:05:00Z",
+            "attendance": {
+                "id": 13,
+                "dailyRecordId": 49,
+                "photoUrl": "/placeholder/meeting49.jpg",
+                "gpsLocation": "32.06N, 118.79E",
+                "safetyBriefingType": "高处作业",
+                "safetyBriefingId": 3,
+                "signatureUrl": "/placeholder/signature49.png",
+                "attendeeIds": [
+                    6,
+                    7,
+                    8
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 50,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-01",
+            "moduleType": "进度",
+            "status": "已通过",
+            "reviewComment": "正常",
+            "reviewedAt": "2026-04-01T18:00:00Z",
+            "progress": [
+                {
+                    "id": 30,
+                    "dailyRecordId": 50,
+                    "workItemId": 1,
+                    "completedQuantity": 80,
+                    "photoUrls": [
+                        "/placeholder/progress30.jpg"
+                    ]
+                },
+                {
+                    "id": 31,
+                    "dailyRecordId": 50,
+                    "workItemId": 2,
+                    "completedQuantity": 50,
+                    "photoUrls": []
+                },
+                {
+                    "id": 32,
+                    "dailyRecordId": 50,
+                    "workItemId": 3,
+                    "completedQuantity": 1,
+                    "photoUrls": []
+                },
+                {
+                    "id": 33,
+                    "dailyRecordId": 50,
+                    "workItemId": 4,
+                    "completedQuantity": 40,
+                    "photoUrls": [
+                        "/placeholder/progress33.jpg"
+                    ]
+                },
+                {
+                    "id": 34,
+                    "dailyRecordId": 50,
+                    "workItemId": 6,
+                    "completedQuantity": 55,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 51,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-01",
+            "moduleType": "材料",
+            "status": "已退回",
+            "reviewComment": "照片模糊，请重拍",
+            "reviewedAt": "2026-04-01T19:18:00Z",
+            "materials": [
+                {
+                    "id": 23,
+                    "dailyRecordId": 51,
+                    "requisitionNo": "",
+                    "materialName": "DN100镀锌钢管",
+                    "specification": "DN100",
+                    "quantity": 30,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 24,
+                    "dailyRecordId": 51,
+                    "requisitionNo": "MR-20260401-024",
+                    "materialName": "无缝钢管",
+                    "specification": "DN200",
+                    "quantity": 20,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 52,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-01",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 13,
+                "dailyRecordId": 52,
+                "formData": {
+                    "recordType": "管线安装",
+                    "location": "K3+500 ~ K3+580",
+                    "diameter": "DN200",
+                    "material": "PE管",
+                    "length": 80,
+                    "depth": 1.5,
+                    "width": 0.6
+                },
+                "photoUrls": [
+                    "/placeholder/site13.jpg",
+                    "/placeholder/site14.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 53,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-01",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-04-01T17:05:00Z",
+            "attendance": {
+                "id": 14,
+                "dailyRecordId": 53,
+                "photoUrl": "/placeholder/meeting53.jpg",
+                "gpsLocation": "32.05N, 118.78E",
+                "safetyBriefingType": "管线焊接",
+                "safetyBriefingId": 5,
+                "signatureUrl": "/placeholder/signature53.png",
+                "attendeeIds": [
+                    6,
+                    10,
+                    12,
+                    13
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 54,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-01",
+            "moduleType": "进度",
+            "status": "已退回",
+            "reviewComment": "安全交底内容不完整",
+            "reviewedAt": "2026-04-01T18:00:00Z",
+            "progress": [
+                {
+                    "id": 35,
+                    "dailyRecordId": 54,
+                    "workItemId": 7,
+                    "completedQuantity": 40,
+                    "photoUrls": []
+                },
+                {
+                    "id": 36,
+                    "dailyRecordId": 54,
+                    "workItemId": 8,
+                    "completedQuantity": 5,
+                    "photoUrls": [
+                        "/placeholder/progress36.jpg"
+                    ]
+                },
+                {
+                    "id": 37,
+                    "dailyRecordId": 54,
+                    "workItemId": 9,
+                    "completedQuantity": 35,
+                    "photoUrls": []
+                },
+                {
+                    "id": 38,
+                    "dailyRecordId": 54,
+                    "workItemId": 10,
+                    "completedQuantity": 1,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 55,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-01",
+            "moduleType": "材料",
+            "status": "已退回",
+            "reviewComment": "数量有误，请核实",
+            "reviewedAt": "2026-04-01T19:18:00Z",
+            "materials": [
+                {
+                    "id": 25,
+                    "dailyRecordId": 55,
+                    "requisitionNo": "",
+                    "materialName": "PE管",
+                    "specification": "DN110",
+                    "quantity": 30,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 26,
+                    "dailyRecordId": 55,
+                    "requisitionNo": "MR-20260401-026",
+                    "materialName": "法兰",
+                    "specification": "DN100",
+                    "quantity": 8,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 56,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-01",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 14,
+                "dailyRecordId": 56,
+                "formData": {
+                    "recordType": "管线安装",
+                    "location": "支管C段 0~40m",
+                    "diameter": "DN110",
+                    "material": "PE管",
+                    "length": 40,
+                    "depth": 1,
+                    "width": 0.4
+                },
+                "photoUrls": [
+                    "/placeholder/site14.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 57,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-01",
+            "moduleType": "考勤",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "attendance": {
+                "id": 15,
+                "dailyRecordId": 57,
+                "photoUrl": "/placeholder/meeting57.jpg",
+                "gpsLocation": "32.04N, 118.76E",
+                "safetyBriefingType": "密闭空间",
+                "safetyBriefingId": 6,
+                "signatureUrl": "/placeholder/signature57.png",
+                "attendeeIds": [
+                    7,
+                    8,
+                    15,
+                    16,
+                    17
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 58,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-01",
+            "moduleType": "进度",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "progress": [
+                {
+                    "id": 39,
+                    "dailyRecordId": 58,
+                    "workItemId": 12,
+                    "completedQuantity": 30,
+                    "photoUrls": [
+                        "/placeholder/progress39.jpg"
+                    ]
+                },
+                {
+                    "id": 40,
+                    "dailyRecordId": 58,
+                    "workItemId": 13,
+                    "completedQuantity": 40,
+                    "photoUrls": []
+                },
+                {
+                    "id": 41,
+                    "dailyRecordId": 58,
+                    "workItemId": 14,
+                    "completedQuantity": 5,
+                    "photoUrls": []
+                },
+                {
+                    "id": 42,
+                    "dailyRecordId": 58,
+                    "workItemId": 15,
+                    "completedQuantity": 35,
+                    "photoUrls": [
+                        "/placeholder/progress42.jpg"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 59,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-01",
+            "moduleType": "材料",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-04-01T19:18:00Z",
+            "materials": [
+                {
+                    "id": 27,
+                    "dailyRecordId": 59,
+                    "requisitionNo": "MR-20260401-027",
+                    "materialName": "PE管",
+                    "specification": "DN160",
+                    "quantity": 50,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 28,
+                    "dailyRecordId": 59,
+                    "requisitionNo": null,
+                    "materialName": "挖掘机",
+                    "specification": "小型",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "挖掘机",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 60,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-01",
+            "moduleType": "施工记录",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-04-01T20:01:00Z",
+            "siteRecord": {
+                "id": 15,
+                "dailyRecordId": 60,
+                "formData": {
+                    "recordType": "旧管拆除",
+                    "location": "1号楼南侧",
+                    "diameter": "DN80",
+                    "material": "钢管",
+                    "length": 30,
+                    "depth": 1,
+                    "width": 0.4
+                },
+                "photoUrls": [
+                    "/placeholder/site15.jpg",
+                    "/placeholder/site16.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 61,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-02",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-04-02T18:05:00Z",
+            "attendance": {
+                "id": 16,
+                "dailyRecordId": 61,
+                "photoUrl": "/placeholder/meeting61.jpg",
+                "gpsLocation": "32.06N, 118.79E",
+                "safetyBriefingType": "管线焊接",
+                "safetyBriefingId": 5,
+                "signatureUrl": "/placeholder/signature61.png",
+                "attendeeIds": [
+                    6,
+                    7,
+                    8,
+                    9
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 62,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-02",
+            "moduleType": "进度",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "progress": [
+                {
+                    "id": 43,
+                    "dailyRecordId": 62,
+                    "workItemId": 1,
+                    "completedQuantity": 90,
+                    "photoUrls": []
+                },
+                {
+                    "id": 44,
+                    "dailyRecordId": 62,
+                    "workItemId": 2,
+                    "completedQuantity": 60,
+                    "photoUrls": []
+                },
+                {
+                    "id": 45,
+                    "dailyRecordId": 62,
+                    "workItemId": 4,
+                    "completedQuantity": 40,
+                    "photoUrls": [
+                        "/placeholder/progress45.jpg"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 63,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-02",
+            "moduleType": "材料",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "materials": [
+                {
+                    "id": 29,
+                    "dailyRecordId": 63,
+                    "requisitionNo": "MR-20260402-029",
+                    "materialName": "DN100镀锌钢管",
+                    "specification": "DN100",
+                    "quantity": 25,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 30,
+                    "dailyRecordId": 63,
+                    "requisitionNo": "MR-20260402-030",
+                    "materialName": "PE管",
+                    "specification": "DN200",
+                    "quantity": 50,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 31,
+                    "dailyRecordId": 63,
+                    "requisitionNo": null,
+                    "materialName": "吊车",
+                    "specification": "25吨",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "吊车",
+                    "equipmentShifts": 3
+                }
+            ]
+        },
+        {
+            "id": 64,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-02",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 16,
+                "dailyRecordId": 64,
+                "formData": {
+                    "recordType": "管沟回填",
+                    "location": "K0+200 ~ K0+260",
+                    "length": 60
+                },
+                "photoUrls": [
+                    "/placeholder/site16.jpg"
+                ],
+                "sketchPhotoUrls": [
+                    "/placeholder/sketch16.jpg"
+                ],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 65,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-02",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-04-02T18:05:00Z",
+            "attendance": {
+                "id": 17,
+                "dailyRecordId": 65,
+                "photoUrl": "/placeholder/meeting65.jpg",
+                "gpsLocation": "32.05N, 118.78E",
+                "safetyBriefingType": "基坑开挖",
+                "safetyBriefingId": 4,
+                "signatureUrl": "/placeholder/signature65.png",
+                "attendeeIds": [
+                    6,
+                    10,
+                    12,
+                    13,
+                    14
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 66,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-02",
+            "moduleType": "进度",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "progress": [
+                {
+                    "id": 46,
+                    "dailyRecordId": 66,
+                    "workItemId": 7,
+                    "completedQuantity": 35,
+                    "photoUrls": []
+                },
+                {
+                    "id": 47,
+                    "dailyRecordId": 66,
+                    "workItemId": 8,
+                    "completedQuantity": 3,
+                    "photoUrls": []
+                },
+                {
+                    "id": 48,
+                    "dailyRecordId": 66,
+                    "workItemId": 9,
+                    "completedQuantity": 30,
+                    "photoUrls": [
+                        "/placeholder/progress48.jpg"
+                    ]
+                }
+            ]
+        },
+        {
+            "id": 67,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-02",
+            "moduleType": "材料",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "materials": [
+                {
+                    "id": 32,
+                    "dailyRecordId": 67,
+                    "requisitionNo": "MR-20260402-032",
+                    "materialName": "入户管连接件",
+                    "specification": "DN20",
+                    "quantity": 20,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 33,
+                    "dailyRecordId": 67,
+                    "requisitionNo": null,
+                    "materialName": "发电机",
+                    "specification": "30kW",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "发电机",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 68,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-02",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 17,
+                "dailyRecordId": 68,
+                "formData": {
+                    "recordType": "入户改造",
+                    "location": "5号楼 201-203室",
+                    "diameter": "DN20",
+                    "material": "铝塑管",
+                    "length": 9
+                },
+                "photoUrls": [
+                    "/placeholder/site17.jpg",
+                    "/placeholder/site18.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 69,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-02",
+            "moduleType": "考勤",
+            "status": "已通过",
+            "reviewComment": null,
+            "reviewedAt": "2026-04-02T18:05:00Z",
+            "attendance": {
+                "id": 18,
+                "dailyRecordId": 69,
+                "photoUrl": "/placeholder/meeting69.jpg",
+                "gpsLocation": "32.04N, 118.76E",
+                "safetyBriefingType": "管线焊接",
+                "safetyBriefingId": 5,
+                "signatureUrl": "/placeholder/signature69.png",
+                "attendeeIds": [
+                    7,
+                    8,
+                    15,
+                    16,
+                    17
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 70,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-02",
+            "moduleType": "进度",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "progress": [
+                {
+                    "id": 49,
+                    "dailyRecordId": 70,
+                    "workItemId": 12,
+                    "completedQuantity": 35,
+                    "photoUrls": []
+                },
+                {
+                    "id": 50,
+                    "dailyRecordId": 70,
+                    "workItemId": 13,
+                    "completedQuantity": 45,
+                    "photoUrls": []
+                },
+                {
+                    "id": 51,
+                    "dailyRecordId": 70,
+                    "workItemId": 14,
+                    "completedQuantity": 6,
+                    "photoUrls": [
+                        "/placeholder/progress51.jpg"
+                    ]
+                },
+                {
+                    "id": 52,
+                    "dailyRecordId": 70,
+                    "workItemId": 15,
+                    "completedQuantity": 40,
+                    "photoUrls": []
+                },
+                {
+                    "id": 53,
+                    "dailyRecordId": 70,
+                    "workItemId": 17,
+                    "completedQuantity": 30,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 71,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-02",
+            "moduleType": "材料",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "materials": [
+                {
+                    "id": 34,
+                    "dailyRecordId": 71,
+                    "requisitionNo": "MR-20260402-034",
+                    "materialName": "PE管",
+                    "specification": "DN110",
+                    "quantity": 40,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 35,
+                    "dailyRecordId": 71,
+                    "requisitionNo": "MR-20260402-035",
+                    "materialName": "弯头",
+                    "specification": "DN110",
+                    "quantity": 10,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 36,
+                    "dailyRecordId": 71,
+                    "requisitionNo": null,
+                    "materialName": "装载机",
+                    "specification": "小型",
+                    "quantity": 1,
+                    "recordType": "设备",
+                    "equipmentType": "装载机",
+                    "equipmentShifts": 3
+                }
+            ]
+        },
+        {
+            "id": 72,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-02",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 18,
+                "dailyRecordId": 72,
+                "formData": {
+                    "recordType": "管线安装",
+                    "location": "1号楼前 0~45m",
+                    "diameter": "DN160",
+                    "material": "PE管",
+                    "length": 45,
+                    "depth": 1.2,
+                    "width": 0.5
+                },
+                "photoUrls": [
+                    "/placeholder/site18.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 73,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-03",
+            "moduleType": "考勤",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "attendance": {
+                "id": 19,
+                "dailyRecordId": 73,
+                "photoUrl": "/placeholder/meeting73.jpg",
+                "gpsLocation": "32.06N, 118.79E",
+                "safetyBriefingType": "基坑开挖",
+                "safetyBriefingId": 4,
+                "signatureUrl": "/placeholder/signature73.png",
+                "attendeeIds": [
+                    6,
+                    7
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 74,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-03",
+            "moduleType": "进度",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "progress": []
+        },
+        {
+            "id": 75,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-03",
+            "moduleType": "材料",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "materials": [
+                {
+                    "id": 37,
+                    "dailyRecordId": 75,
+                    "requisitionNo": "MR-20260403-037",
+                    "materialName": "PE管",
+                    "specification": "DN110",
+                    "quantity": 30,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 38,
+                    "dailyRecordId": 75,
+                    "requisitionNo": null,
+                    "materialName": "电焊机",
+                    "specification": "400A",
+                    "quantity": 2,
+                    "recordType": "设备",
+                    "equipmentType": "电焊机",
+                    "equipmentShifts": 2
+                }
+            ]
+        },
+        {
+            "id": 76,
+            "projectId": 1,
+            "teamLeaderId": 2,
+            "date": "2026-04-03",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 19,
+                "dailyRecordId": 76,
+                "formData": {
+                    "recordType": "管沟开挖",
+                    "location": "K0+260 ~ K0+280",
+                    "length": 20,
+                    "depth": 1.3,
+                    "width": 0.5
+                },
+                "photoUrls": [
+                    "/placeholder/site19.jpg",
+                    "/placeholder/site20.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 77,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-03",
+            "moduleType": "考勤",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "attendance": {
+                "id": 20,
+                "dailyRecordId": 77,
+                "photoUrl": "/placeholder/meeting77.jpg",
+                "gpsLocation": "32.05N, 118.78E",
+                "safetyBriefingType": "通用",
+                "safetyBriefingId": 1,
+                "signatureUrl": "/placeholder/signature77.png",
+                "attendeeIds": [
+                    6,
+                    10,
+                    12
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 78,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-03",
+            "moduleType": "进度",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "progress": []
+        },
+        {
+            "id": 79,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-03",
+            "moduleType": "材料",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "materials": [
+                {
+                    "id": 39,
+                    "dailyRecordId": 79,
+                    "requisitionNo": "MR-20260403-039",
+                    "materialName": "PE管",
+                    "specification": "DN110",
+                    "quantity": 25,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 40,
+                    "dailyRecordId": 79,
+                    "requisitionNo": "MR-20260403-040",
+                    "materialName": "调压箱",
+                    "specification": "DN50",
+                    "quantity": 1,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 80,
+            "projectId": 2,
+            "teamLeaderId": 3,
+            "date": "2026-04-03",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 20,
+                "dailyRecordId": 80,
+                "formData": {
+                    "recordType": "管沟开挖",
+                    "location": "支管D段 0~20m",
+                    "length": 20,
+                    "depth": 1.2,
+                    "width": 0.5
+                },
+                "photoUrls": [
+                    "/placeholder/site20.jpg"
+                ],
+                "sketchPhotoUrls": [
+                    "/placeholder/sketch20.jpg"
+                ],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        },
+        {
+            "id": 81,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-03",
+            "moduleType": "考勤",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "attendance": {
+                "id": 21,
+                "dailyRecordId": 81,
+                "photoUrl": "/placeholder/meeting81.jpg",
+                "gpsLocation": "32.04N, 118.76E",
+                "safetyBriefingType": "动火作业",
+                "safetyBriefingId": 2,
+                "signatureUrl": "/placeholder/signature81.png",
+                "attendeeIds": [
+                    7,
+                    8,
+                    15,
+                    16
+                ],
+                "highRiskWork": null
+            }
+        },
+        {
+            "id": 82,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-03",
+            "moduleType": "进度",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "progress": [
+                {
+                    "id": 54,
+                    "dailyRecordId": 82,
+                    "workItemId": 12,
+                    "completedQuantity": 40,
+                    "photoUrls": [
+                        "/placeholder/progress54.jpg"
+                    ]
+                },
+                {
+                    "id": 55,
+                    "dailyRecordId": 82,
+                    "workItemId": 13,
+                    "completedQuantity": 50,
+                    "photoUrls": []
+                },
+                {
+                    "id": 56,
+                    "dailyRecordId": 82,
+                    "workItemId": 14,
+                    "completedQuantity": 5,
+                    "photoUrls": []
+                },
+                {
+                    "id": 57,
+                    "dailyRecordId": 82,
+                    "workItemId": 15,
+                    "completedQuantity": 45,
+                    "photoUrls": [
+                        "/placeholder/progress57.jpg"
+                    ]
+                },
+                {
+                    "id": 58,
+                    "dailyRecordId": 82,
+                    "workItemId": 17,
+                    "completedQuantity": 35,
+                    "photoUrls": []
+                }
+            ]
+        },
+        {
+            "id": 83,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-03",
+            "moduleType": "材料",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "materials": [
+                {
+                    "id": 41,
+                    "dailyRecordId": 83,
+                    "requisitionNo": "MR-20260403-041",
+                    "materialName": "PE管",
+                    "specification": "DN160",
+                    "quantity": 35,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                },
+                {
+                    "id": 42,
+                    "dailyRecordId": 83,
+                    "requisitionNo": "MR-20260403-042",
+                    "materialName": "燃气表",
+                    "specification": "G4",
+                    "quantity": 5,
+                    "recordType": "领料",
+                    "equipmentType": null,
+                    "equipmentShifts": null
+                }
+            ]
+        },
+        {
+            "id": 84,
+            "projectId": 3,
+            "teamLeaderId": 4,
+            "date": "2026-04-03",
+            "moduleType": "施工记录",
+            "status": "待审核",
+            "reviewComment": null,
+            "reviewedAt": null,
+            "siteRecord": {
+                "id": 21,
+                "dailyRecordId": 84,
+                "formData": {
+                    "recordType": "入户改造",
+                    "location": "1号楼 101-105室",
+                    "diameter": "DN20",
+                    "material": "铝塑管",
+                    "length": 15
+                },
+                "photoUrls": [
+                    "/placeholder/site21.jpg",
+                    "/placeholder/site22.jpg"
+                ],
+                "sketchPhotoUrls": [],
+                "pdfAnnotation": null,
+                "hiddenWork": false
+            }
+        }
+    ]
+}

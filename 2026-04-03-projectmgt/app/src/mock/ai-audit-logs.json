@@ -1,0 +1,38 @@
+[
+    {
+        "id": 1,
+        "dailyRecordId": 5,
+        "result": "正常",
+        "reason": "数据在合理范围内",
+        "confidence": 0.95,
+        "humanDecision": "通过",
+        "createdAt": "2026-04-02T10:00:00Z"
+    },
+    {
+        "id": 2,
+        "dailyRecordId": 12,
+        "result": "疑似异常",
+        "reason": "完成量是近7天日均的3.2倍，可能存在数据突变",
+        "confidence": 0.78,
+        "humanDecision": null,
+        "createdAt": "2026-04-03T10:00:00Z"
+    },
+    {
+        "id": 3,
+        "dailyRecordId": 18,
+        "result": "明显问题",
+        "reason": "考勤人数3人但完成量需要至少8人，考勤矛盾",
+        "confidence": 0.92,
+        "humanDecision": null,
+        "createdAt": "2026-04-03T10:01:00Z"
+    },
+    {
+        "id": 4,
+        "dailyRecordId": 25,
+        "result": "正常",
+        "reason": "所有检查通过",
+        "confidence": 0.98,
+        "humanDecision": null,
+        "createdAt": "2026-04-03T10:02:00Z"
+    }
+]

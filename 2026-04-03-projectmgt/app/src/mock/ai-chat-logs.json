@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "userId": 2,
+        "projectId": 1,
+        "sessionId": "session-001",
+        "role": "user",
+        "content": "今天焊了80米",
+        "parsedIntent": {
+            "module": "进度",
+            "action": "create",
+            "fields": { "completedQuantity": 80, "unit": "米" }
+        },
+        "createdAt": "2026-04-03T08:30:00Z"
+    },
+    {
+        "id": 2,
+        "userId": 2,
+        "projectId": 1,
+        "sessionId": "session-001",
+        "role": "assistant",
+        "content": "好的，已识别为**进度记录**：完成 80米。确认后将创建今日进度记录，是否确认？",
+        "parsedIntent": {
+            "module": "进度",
+            "action": "create",
+            "fields": { "completedQuantity": 80, "unit": "米" }
+        },
+        "createdAt": "2026-04-03T08:30:01Z"
+    },
+    {
+        "id": 3,
+        "userId": 2,
+        "projectId": 1,
+        "sessionId": "session-001",
+        "role": "user",
+        "content": "确认",
+        "createdAt": "2026-04-03T08:30:15Z"
+    },
+    {
+        "id": 4,
+        "userId": 2,
+        "projectId": 1,
+        "sessionId": "session-002",
+        "role": "user",
+        "content": "领了30根管",
+        "parsedIntent": {
+            "module": "材料",
+            "action": "create",
+            "fields": { "quantity": 30, "unit": "根", "recordType": "领料" }
+        },
+        "createdAt": "2026-04-02T09:00:00Z"
+    },
+    {
+        "id": 5,
+        "userId": 2,
+        "projectId": 1,
+        "sessionId": "session-002",
+        "role": "assistant",
+        "content": "好的，已识别为**材料领料**：30根。确认后将创建材料记录，是否确认？",
+        "createdAt": "2026-04-02T09:00:01Z"
+    }
+]

@@ -1,0 +1,35 @@
+<!-- 修复MCP配置的参考代码 -->
+<!--
+修复MCP问题的方法:
+
+1. 找到以下文件: c:\Users\tian_pan\.cursor\mcp.json
+2. 修改amap-maps配置，添加"/c"参数:
+
+{
+  "mcpServers": {
+    "amap-maps": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@amap/amap-maps-mcp-server"
+      ],
+      "env": {
+        "AMAP_MAPS_API_KEY": "63b149d2fa2d501a37a22b75bf3a72b3"
+      }
+    },
+    "sequential-thinking": {
+      "command": "cmd",
+      "args": [
+        "/c",
+        "npx",
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    }
+  }
+}
+
+3. 保存文件后重启Cursor编辑器
+--> 

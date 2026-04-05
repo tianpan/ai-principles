@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>工程管家 V1.1 原型截图 — 关键流程演示</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; background: #f5f5f5; color: #333; }
+        .header { background: linear-gradient(135deg, #1677ff, #0958d9); color: white; padding: 40px 20px; text-align: center; }
+        .header h1 { font-size: 28px; margin-bottom: 8px; }
+        .header p { font-size: 16px; opacity: 0.85; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 30px 20px; }
+        .section { margin-bottom: 50px; }
+        .section-title { font-size: 22px; font-weight: 700; color: #1677ff; border-left: 4px solid #1677ff; padding-left: 12px; margin-bottom: 8px; }
+        .section-desc { color: #666; font-size: 14px; margin-bottom: 20px; padding-left: 16px; }
+        .flow { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+        .screenshot-card { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; width: 380px; }
+        .screenshot-card.wide { width: 100%; max-width: 900px; }
+        .screenshot-card img { width: 100%; display: block; }
+        .screenshot-card .caption { padding: 12px 16px; border-top: 1px solid #f0f0f0; }
+        .screenshot-card .caption .step { display: inline-block; background: #1677ff; color: white; border-radius: 50%; width: 24px; height: 24px; text-align: center; line-height: 24px; font-size: 12px; margin-right: 8px; }
+        .screenshot-card .caption .label { font-weight: 600; font-size: 15px; }
+        .screenshot-card .caption .desc { color: #888; font-size: 13px; margin-top: 4px; padding-left: 32px; }
+        .arrow { display: flex; align-items: center; justify-content: center; font-size: 28px; color: #1677ff; min-width: 40px; }
+        .flow-row { display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; margin-bottom: 16px; }
+        .divider { border: none; border-top: 1px dashed #ddd; margin: 40px 0; }
+        .legend { background: #fffbe6; border: 1px solid #ffe58f; border-radius: 8px; padding: 16px 20px; margin-bottom: 30px; }
+        .legend h3 { font-size: 15px; margin-bottom: 8px; color: #d48806; }
+        .legend ul { padding-left: 20px; font-size: 14px; color: #666; }
+        .legend li { margin-bottom: 4px; }
+        .footer { text-align: center; padding: 30px; color: #999; font-size: 13px; }
+        @media (max-width: 840px) {
+            .screenshot-card { width: 100%; }
+            .arrow { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    <h1>工程管家 V1.1 原型截图</h1>
+    <p>关键流程演示 — 移动端（班组长）+ PC 端（项目经理）</p>
+    <p style="margin-top:8px; font-size:13px; opacity:0.7;">生成时间：2026-04-04 | 共 13 页</p>
+</div>
+
+<div class="container">
+
+    <div class="legend">
+        <h3>角色说明</h3>
+        <ul>
+            <li><strong>张三（班组长）</strong>：移动端操作 — 每日填报考勤、进度、材料、施工记录</li>
+            <li><strong>王经理（项目经理）</strong>：PC 端管理 — 审核日报、查看项目进度、数据报表</li>
+            <li><strong>AI 助手</strong>：浮窗对话式填表，支持自然语言输入</li>
+        </ul>
+    </div>
+
+    <!-- ===== 流程一：移动端登录 ===== -->
+    <div class="section">
+        <div class="section-title">流程一：用户登录</div>
+        <div class="section-desc">支持手机号密码登录和快捷登录（测试用）</div>
+        <div class="flow-row">
+            <div class="screenshot-card">
+                <img src="01-login.png" alt="登录页">
+                <div class="caption">
+                    <span class="step">1</span>
+                    <span class="label">登录页</span>
+                    <div class="desc">手机号 + 密码登录，支持快捷选择角色</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ===== 流程二：移动端首页 ===== -->
+    <div class="section">
+        <div class="section-title">流程二：移动端首页（班组长视角）</div>
+        <div class="section-desc">今日登记入口、项目信息、待审核列表、AI 助手浮窗</div>
+        <div class="flow-row">
+            <div class="screenshot-card">
+                <img src="02-home.png" alt="移动端首页">
+                <div class="caption">
+                    <span class="step">2</span>
+                    <span class="label">移动端首页</span>
+                    <div class="desc">四大模块入口 + 待审核 + AI 浮窗</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ===== 流程三：四大模块填报 ===== -->
+    <div class="section">
+        <div class="section-title">流程三：四大模块填报</div>
+        <div class="section-desc">班组长每日登记：安全考勤 → 施工进度 → 材料设备 → 施工记录</div>
+        <div class="flow-row">
+            <div class="screenshot-card">
+                <img src="03-safety.png" alt="安全考勤">
+                <div class="caption">
+                    <span class="step">3</span>
+                    <span class="label">安全考勤</span>
+                    <div class="desc">4步向导：拍照签到 → 安全交底 → 电子签名 → 提交</div>
+                </div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="screenshot-card">
+                <img src="04-progress.png" alt="施工进度">
+                <div class="caption">
+                    <span class="step">4</span>
+                    <span class="label">施工进度</span>
+                    <div class="desc">按工序填写完成量，自动累计进度百分比</div>
+                </div>
+            </div>
+        </div>
+        <div class="flow-row">
+            <div class="screenshot-card">
+                <img src="05-material.png" alt="材料设备">
+                <div class="caption">
+                    <span class="step">5</span>
+                    <span class="label">材料设备</span>
+                    <div class="desc">领料/退料/设备/采买四类，快捷选择常用材料</div>
+                </div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="screenshot-card">
+                <img src="06-site-record.png" alt="施工记录">
+                <div class="caption">
+                    <span class="step">6</span>
+                    <span class="label">施工记录</span>
+                    <div class="desc">7类记录类型，隐蔽工程标记，照片上传</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ===== 流程四：审核与历史 ===== -->
+    <div class="section">
+        <div class="section-title">流程四：移动端审核 & 历史</div>
+        <div class="section-desc">项目经理在移动端审核日报、班组长查看历史记录</div>
+        <div class="flow-row">
+            <div class="screenshot-card">
+                <img src="07-review-mobile.png" alt="移动端审核">
+                <div class="caption">
+                    <span class="step">7</span>
+                    <span class="label">移动端审核</span>
+                    <div class="desc">展开记录详情，通过/退回操作</div>
+                </div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="screenshot-card">
+                <img src="08-history.png" alt="历史记录">
+                <div class="caption">
+                    <span class="step">8</span>
+                    <span class="label">历史记录</span>
+                    <div class="desc">按日期分组，支持模块筛选</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <hr class="divider">
+
+    <!-- ===== 流程五：PC 端管理 ===== -->
+    <div class="section">
+        <div class="section-title">流程五：PC 端管理后台（项目经理视角）</div>
+        <div class="section-desc">Dashboard 仪表盘 → 项目管理 → 审核工作台 → 报表中心 → 项目详情</div>
+        <div class="flow-row">
+            <div class="screenshot-card wide">
+                <img src="09-pc-dashboard.png" alt="PC Dashboard">
+                <div class="caption">
+                    <span class="step">9</span>
+                    <span class="label">PC 端 Dashboard</span>
+                    <div class="desc">项目总览、进度统计、安全交底摘要、待审核列表</div>
+                </div>
+            </div>
+        </div>
+        <div class="flow-row">
+            <div class="screenshot-card wide">
+                <img src="10-pc-review.png" alt="PC 审核">
+                <div class="caption">
+                    <span class="step">10</span>
+                    <span class="label">PC 端审核工作台</span>
+                    <div class="desc">按班组长分组审核，支持批量通过、退回</div>
+                </div>
+            </div>
+        </div>
+        <div class="flow-row">
+            <div class="screenshot-card">
+                <img src="11-pc-projects.png" alt="项目管理">
+                <div class="caption">
+                    <span class="step">11</span>
+                    <span class="label">项目管理列表</span>
+                    <div class="desc">搜索、新建项目、查看项目详情</div>
+                </div>
+            </div>
+            <div class="arrow">→</div>
+            <div class="screenshot-card">
+                <img src="13-pc-project-detail.png" alt="项目详情">
+                <div class="caption">
+                    <span class="step">12</span>
+                    <span class="label">项目详情</span>
+                    <div class="desc">信息/进度/记录/成员四个 Tab</div>
+                </div>
+            </div>
+        </div>
+        <div class="flow-row">
+            <div class="screenshot-card wide">
+                <img src="12-pc-reports.png" alt="报表中心">
+                <div class="caption">
+                    <span class="step">13</span>
+                    <span class="label">报表中心</span>
+                    <div class="desc">进度概览（偏差分析）、安全月度趋势、竣工倒计时</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="footer">
+    工程管家 V1.1 原型截图 | 港华智慧能源工程管理 APP | 2026-04-04
+</div>
+
+</body>
+</html>

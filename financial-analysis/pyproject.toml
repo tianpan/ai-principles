@@ -1,0 +1,22 @@
+[tool.poetry]
+name = "financial-analysis"
+version = "0.1.0"
+description = "港华集团成员企业财务分析工具"
+authors = ["Your Name <your.email@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+pandas = "^2.0.0"
+openpyxl = "^3.1.2"
+matplotlib = "^3.7.1"
+python-docx = "^0.8.11"
+PyQt6 = "^6.5.0"
+numpy = "^1.24.3"
+xlrd = "^2.0.1"
+
+[tool.poetry.dev-dependencies]
+pytest = "^7.3.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api" 

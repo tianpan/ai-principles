@@ -1,0 +1,80 @@
+{
+    "departments": [
+        {
+            "id": 1,
+            "name": "金卓南京项目部",
+            "managerId": 1,
+            "createdAt": "2026-01-15T08:00:00Z"
+        }
+    ],
+    "projects": [
+        {
+            "id": 1,
+            "name": "XX路中压燃气管道工程",
+            "departmentId": 1,
+            "creatorId": 5,
+            "startDate": "2026-03-01",
+            "endDate": "2026-05-31",
+            "teamLeaderId": 2,
+            "memberIds": [6, 7, 8, 9, 10, 11],
+            "remarks": "市政中压燃气管道铺设，涉及主城区道路开挖",
+            "status": "进行中",
+            "isSubcontractor": false,
+            "constructionPlanUrls": [],
+            "createdAt": "2026-02-20T08:00:00Z",
+            "workItems": [
+                { "id": 1, "projectId": 1, "name": "中压管线焊接", "targetQuantity": 1200, "unit": "米", "weight": 0.35 },
+                { "id": 2, "projectId": 1, "name": "管沟开挖", "targetQuantity": 1500, "unit": "米", "weight": 0.20 },
+                { "id": 3, "projectId": 1, "name": "阀门安装", "targetQuantity": 12, "unit": "个", "weight": 0.15 },
+                { "id": 4, "projectId": 1, "name": "管沟回填", "targetQuantity": 1500, "unit": "米", "weight": 0.10 },
+                { "id": 5, "projectId": 1, "name": "吹扫试压", "targetQuantity": 1, "unit": "项", "weight": 0.10 },
+                { "id": 6, "projectId": 1, "name": "警示带敷设", "targetQuantity": 1500, "unit": "米", "weight": 0.10 }
+            ]
+        },
+        {
+            "id": 2,
+            "name": "YY路支管连接工程",
+            "departmentId": 1,
+            "creatorId": 5,
+            "startDate": "2026-02-15",
+            "endDate": "2026-04-30",
+            "teamLeaderId": 3,
+            "memberIds": [6, 10, 12, 13, 14],
+            "remarks": "支管入户连接，涉及老旧小区改造",
+            "status": "进行中",
+            "isSubcontractor": false,
+            "constructionPlanUrls": [],
+            "createdAt": "2026-02-10T08:00:00Z",
+            "workItems": [
+                { "id": 7, "projectId": 2, "name": "支管铺设", "targetQuantity": 800, "unit": "米", "weight": 0.35 },
+                { "id": 8, "projectId": 2, "name": "入户管连接", "targetQuantity": 60, "unit": "户", "weight": 0.25 },
+                { "id": 9, "projectId": 2, "name": "管沟开挖及回填", "targetQuantity": 800, "unit": "米", "weight": 0.20 },
+                { "id": 10, "projectId": 2, "name": "阀门及调压箱安装", "targetQuantity": 8, "unit": "个", "weight": 0.10 },
+                { "id": 11, "projectId": 2, "name": "强度试验", "targetQuantity": 1, "unit": "项", "weight": 0.10 }
+            ]
+        },
+        {
+            "id": 3,
+            "name": "ZZ小区改造工程",
+            "departmentId": 1,
+            "creatorId": 5,
+            "startDate": "2026-04-01",
+            "endDate": "2026-06-30",
+            "teamLeaderId": 4,
+            "memberIds": [7, 8, 15, 16, 17],
+            "remarks": "老旧小区燃气管道改造，分包项目",
+            "status": "进行中",
+            "isSubcontractor": true,
+            "constructionPlanUrls": [],
+            "createdAt": "2026-03-20T08:00:00Z",
+            "workItems": [
+                { "id": 12, "projectId": 3, "name": "旧管拆除", "targetQuantity": 500, "unit": "米", "weight": 0.15 },
+                { "id": 13, "projectId": 3, "name": "新管铺设", "targetQuantity": 600, "unit": "米", "weight": 0.30 },
+                { "id": 14, "projectId": 3, "name": "入户改造", "targetQuantity": 80, "unit": "户", "weight": 0.25 },
+                { "id": 15, "projectId": 3, "name": "管沟开挖及回填", "targetQuantity": 600, "unit": "米", "weight": 0.15 },
+                { "id": 16, "projectId": 3, "name": "气密性试验", "targetQuantity": 1, "unit": "项", "weight": 0.10 },
+                { "id": 17, "projectId": 3, "name": "警示带及标志桩", "targetQuantity": 600, "unit": "米", "weight": 0.05 }
+            ]
+        }
+    ]
+}

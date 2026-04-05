@@ -1,0 +1,14 @@
+[
+    { "id": 6, "departmentId": 1, "name": "赵六", "phone": "13900000001", "position": "焊工", "certifications": [{ "type": "焊工证", "level": "高级", "expireDate": "2027-06-30" }] },
+    { "id": 7, "departmentId": 1, "name": "孙七", "phone": "13900000002", "position": "管工", "certifications": [{ "type": "管工证", "level": "中级", "expireDate": "2027-12-31" }] },
+    { "id": 8, "departmentId": 1, "name": "周八", "phone": "13900000003", "position": "电工", "certifications": [{ "type": "电工证", "level": "特种作业", "expireDate": "2027-03-15" }] },
+    { "id": 9, "departmentId": 1, "name": "吴九", "phone": "13900000004", "position": "普工", "certifications": [] },
+    { "id": 10, "departmentId": 1, "name": "郑十", "phone": "13900000005", "position": "焊工", "certifications": [{ "type": "焊工证", "level": "中级", "expireDate": "2027-09-30" }] },
+    { "id": 11, "departmentId": 1, "name": "钱十一", "phone": "13900000006", "position": "起重工", "certifications": [{ "type": "起重作业证", "level": "特种作业", "expireDate": "2026-11-20" }] },
+    { "id": 12, "departmentId": 1, "name": "冯十二", "phone": "13900000007", "position": "管工", "certifications": [{ "type": "管工证", "level": "初级", "expireDate": "2028-01-31" }] },
+    { "id": 13, "departmentId": 1, "name": "陈十三", "phone": "13900000008", "position": "普工", "certifications": [] },
+    { "id": 14, "departmentId": 1, "name": "褚十四", "phone": "13900000009", "position": "测量工", "certifications": [{ "type": "测量证", "level": "中级", "expireDate": "2027-08-15" }] },
+    { "id": 15, "departmentId": 1, "name": "卫十五", "phone": "13900000010", "position": "焊工", "certifications": [{ "type": "焊工证", "level": "高级", "expireDate": "2027-05-10" }] },
+    { "id": 16, "departmentId": 1, "name": "蒋十六", "phone": "13900000011", "position": "普工", "certifications": [] },
+    { "id": 17, "departmentId": 1, "name": "沈十七", "phone": "13900000012", "position": "管工", "certifications": [{ "type": "管工证", "level": "中级", "expireDate": "2027-07-20" }] }
+]
